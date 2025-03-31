@@ -1,0 +1,64 @@
+wine_env) PS C:\Users\shiva\Desktop\project\ai_wine_recommendor_chatbot> & c:/Users/shiva/Desktop/project/ai_wine_recommendor_chatbot/wine_env/Scripts/python.exe c:/Users/shiva/Desktop/project/ai_wine_recommendor_chatbot/data/Cleaning.py
+Rows with both descriptions null: 4024
+Cleaned data saved to c:\Users\shiva\Desktop\project\ai_wine_recommendor_chatbot\data\cleaned_wine_data.csv
+
+Missing taste values BEFORE XGBoost imputation:
+Light to Bold        388
+Smooth to Tannic    1898
+Dry to Sweet        1142
+Soft to Acidic      1099
+dtype: int64
+Rows with missing taste data: 2952
+Missing taste characteristics filled using XGBoost (rounded to 2 decimals).
+Missing taste values AFTER XGBoost imputation:
+Light to Bold       0
+Smooth to Tannic    0
+Dry to Sweet        0
+Soft to Acidic      0
+dtype: int64
+
+Missing Alcohol Content (%) BEFORE XGBoost imputation:
+3785
+Rows with missing Alcohol Content (%): 3785
+Missing Alcohol Content (%) filled using XGBoost and custom rounding.
+Missing Alcohol Content (%) AFTER XGBoost imputation:
+0
+
+Final Data saved to 'c:\Users\shiva\Desktop\project\ai_wine_recommendor_chatbot\data\final_wine_data.csv'.
+
+=== Final DataFrame Info ===
+<class 'pandas.core.frame.DataFrame'>
+Index: 8003 entries, 0 to 9240
+Data columns (total 26 columns):
+ #   Column                  Non-Null Count  Dtype
+---  ------                  --------------  -----
+ 0   Product Link            8003 non-null   object
+ 1   Winery                  8003 non-null   object
+ 2   Wine Name               8003 non-null   object
+ 3   Country                 8003 non-null   object
+ 4   Region                  8003 non-null   object
+ 5   Wine Type               8003 non-null   object
+ 6   Grape Type              8003 non-null   object
+ 7   Price                   8003 non-null   float64
+ 8   Rating                  8003 non-null   float64
+ 9   Wine Description 1      8003 non-null   object
+ 10  Wine Description 2      8003 non-null   object
+ 11  Food Pairing            8003 non-null   object
+ 12  Alcohol Content (%)     8003 non-null   float64
+ 13  Allergens               8003 non-null   object
+ 14  Bottle Closure          932 non-null    object
+ 15  Image URL               8003 non-null   object
+ 16  Image Path              8003 non-null   object
+ 17  Light to Bold           8003 non-null   float64
+ 18  Smooth to Tannic        8003 non-null   float64
+ 19  Dry to Sweet            8003 non-null   float64
+ 20  Soft to Acidic          8003 non-null   float64
+ 21  Gentle to Fizzy         8003 non-null   float64
+ 22  Vintage                 8003 non-null   object
+ 23  primary type            8003 non-null   object
+ 24  Grape Type List         8003 non-null   object
+ 25  Both Descriptions Null  8003 non-null   bool
+dtypes: bool(1), float64(8), object(17)
+memory usage: 1.6+ MB
+None
+Updated cleaning.py module loaded successfully.
