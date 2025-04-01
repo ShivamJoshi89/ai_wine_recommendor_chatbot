@@ -1,0 +1,37 @@
+  File "c:\Users\shiva\Desktop\project\ai_wine_recommendor_chatbot\RAGs\rag_module.py", line 99, in <module>
+(wine_env) PS C:\Users\shiva\Desktop\project\ai_wine_recommendor_chatbot> & c:/Users/shiva/Desktop/project/ai_wine_recommendor_chatbot/wine_env/Scripts/python.exe c:/Users/shiva/Desktop/project/ai_wine_recommendor_chatbot/RAGs/rag_module.py
+📚 Chunking the PDF and building vector index...
+✅ Vectorstore saved to c:\Users\shiva\Desktop\project\ai_wine_recommendor_chatbot\RAGs\food_wine_pairing_vectorstore
+
+🔍 RAG Retrieved Context:
+
+Expert Advice from Sommeliers:
+• mushrooms     and     the     wine    are     compatible.     In      general,        I       prefer  chanterelles    with
+slightly         off-dry         white   wines,  such    as      dry     German,         Alsatian,       or      Austrian
+Rieslings.      Morels  are     usually better  when    paired  with    creamier        and     milder  meats
+
+• DISH:
+Risotto with    mushrooms       or      truffles,
+        or      any
+game
+        like    quail.
+3.      Vietti  Barbera d’Alba.
+This    wine    is      elegant with    good    acidity and     drinks  so      well.
+DISH:   This    wine    would   go      with    almost  anything.       If      I       had     to      choose  a       dish,   it
+would   have    to      be
+rabbit.
+4.      Litina  Cascina Castlet.
+DISH:   This    is      another wine    that    is      a       fabulous        food    wine    and     goes    with    almost
+anything.       I’d     have
+pasta   with    a       nice    ragu    sauce.
+5.      Maria   Borio   Barbera d’Asti.
+DISH:   This    is      a       light   red     and     would   go      well    with
+tuna.
+
+• create        a       platform        for     wine    to      show    well.   Mushrooms       are     spectacular     with    red
+wines   with    an      earthy  aroma,  or      white   wines   with    some    age.
+—TIM    KOPEC,  wine    director,       Veritas (NYC)
+Pinot   Noir    and     mushrooms       are     a       slam    dunk.
+—TRACI  DES     JARDINS,        chef,   Jardiniere      (San    Francisco)
+Mushrooms        are     delicious       with    wine    as      long    as      the     characteristics         of      the
+mushrooms       and     the     wine    are     compatible.     In      general,        I       prefer  chanterelles    with
