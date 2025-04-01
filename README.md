@@ -45,7 +45,7 @@ Wine selection can be overwhelming—even for seasoned enthusiasts. Our chatbot 
 
 The project is organized into several key modules:
 
-### 1. Scraper (Scrapper.py)
+### 1. Scraper (Scrapper.py) (#https://github.com/ShivamJoshi89/ai_wine_recommendor_chatbot/blob/main/data/Scrapper.py)
 - Scrapes wine data and images from Vivino.
 - Implements batch processing, user-agent rotation, and error handling.
 
