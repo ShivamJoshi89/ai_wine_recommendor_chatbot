@@ -1,0 +1,80 @@
+🤖 AI Wine Chatbot is Ready!
+
+You: Give me a red wine which pair well with spicy food and is under 36 dollors
+
+📊 Token Usage — Prompt: 449, Completion: 282, Total: 731
+
+Sommelier: For a red wine that pairs well with spicy food and is under $36, I would recommend exploring some options outside of the specific wines you've mentioned. While the wines listed are exquisite, they are on the higher end of the price spectrum and might not complement spicy dishes as well as other varieties.
+
+One excellent choice for spicy food is a **Zinfandel** or a **Grenache**, both of which often have fruity profiles and lower tannin levels, making them great companions for spicy dishes. Look for:
+
+1. **Zinfandel**: This wine typically has jammy fruit flavors with peppery notes that work wonderfully with spiced dishes like barbecue or spicy Asian cuisine.
+
+2. **Grenache**: Known for its berry flavors and subtle spice, Grenache can handle heat well and pairs nicely with dishes featuring heavy spices or even chili.
+
+You might also want to check out **Syrah/Shiraz**, which can offer bold flavors with peppery notes that complement spicy foods without overwhelming them.
+
+When selecting a wine, ensure that it has a moderate level of tannins, as high tannin wines can intensify the heat of spicy food. Ideally, serve the wine slightly chilled to enhance its refreshing qualities. 
+
+For storage, keep the wine in a cool, dark place, and if you open a bottle, try to consume it within a few days to enjoy its full flavor profile. Cheers!
+
+
+
+
+
+
+
+You: For a dinner featuring spicy Thai curry and looking for a medium-bodied red wine with a fruity profile under $25, I have a couple of excellent options to consider, especially focusing on California wines. While the Conundrum Red Blend you mentioned is a fantastic choice, let’s explore a few options tailored to your needs 
+
+📊 Token Usage — Prompt: 1134, Completion: 455, Total: 1589
+
+Sommelier: For a spicy Thai curry, a medium-bodied red wine with a fruity profile is a great choice, as it can complement the dish without overwhelming it. Here are a few excellent options under $25 that you can consider, especially from California:
+
+1. **Bogle Vineyards Old Vine Zinfandel** (Approx. $10-15)
+   - **Profile:** This Zinfandel is fruity with bold flavors of blackberry and raspberry, and it has a hint of spice that pairs nicely with the heat of Thai curry.
+   - **Why It Works:** The fruitiness helps to balance the spiciness of the curry, while its lower tannins make it very approachable.
+
+2. **Cline Cellars Syrah** (Approx. $15-20)
+   - **Profile:** This Syrah features rich plum and blackberry notes with a touch of black pepper. It’s medium-bodied and has a smooth finish.
+   - **Why It Works:** Its peppery undertones can enhance the flavors in your curry while complementing the rich coconut milk often used in Thai dishes.
+
+3. **Markham Vineyards Merlot** (Approx. $20-25)
+   - **Profile:** A soft, fruit-forward Merlot with flavors of cherry and plum, complemented by chocolate and spice notes.
+   - **Why It Works:** Its smooth tannins and fruitiness make it versatile enough to handle the spice without clashing.
+
+4. **Peju Province Winery Cabernet Sauvignon** (Approx. $22-25)
+   - **Profile:** This Cabernet has a nice balance of fruit and acidity, with flavors of dark fruits and a hint of herbal notes.
+   - **Why It Works:** The herbal notes can nicely echo the fresh herbs often found in Thai cuisine, while the fruitiness softens the heat.
+
+### Serving and Storage Tips:
+- **Serving Temperature:** For all these wines, serve them slightly chilled (around 55-60°F) to enhance their fruit profiles and refreshing qualities.
+- **Storage:** If you have leftovers, store the wine in a cool, dark place and recork it. Try to consume it within a few days for optimal flavor.
+
+These wines should complement your spicy Thai curry beautifully without breaking the bank. Enjoy your dinner!
+
+
+
+
+
+
+You: red wine is not supposed to be kept in the fridge right
+
+📊 Token Usage — Prompt: 1798, Completion: 419, Total: 2217
+
+Sommelier: It's a common misconception that red wine should never be kept in the fridge. While many people prefer to store red wine at room temperature, there are some benefits to chilling it slightly before serving. Here are a few key points to consider:
+
+### Storage Tips for Red Wine:
+1. **Temperature:** Red wines are best stored at a consistent temperature between 55-65°F (13-18°C). Storing them in a cool, dark place, like a wine cellar, is ideal. If you don’t have a wine fridge or cellar, a regular fridge is fine for short-term storage, but avoid prolonged exposure as it can dry out the cork.
+
+2. **Short-Term Chilling:** If your red wine is too warm (especially in a warm environment), placing it in the fridge for about 15-30 minutes before serving can enhance its flavors and aromas. This is especially true for lighter-bodied reds, like Pinot Noir or Gamay, which can benefit from being served slightly cooler than room temperature.
+
+3. **Serving Temperature:** For most fuller-bodied reds (like Cabernet Sauvignon or Syrah), serving them at around 60-65°F (15-18°C) is ideal. You can achieve this by chilling them briefly in the fridge or using an ice bucket.
+
+### When Not to Refrigerate:
+- **Long-Term Storage:** Avoid keeping red wine in the fridge for extended periods, as the cold can affect the wine's aging process and potentially spoil it. Consistent temperature fluctuations can also be detrimental.
+- **Heavy Reds:** If you're serving a bold red at a warmer temperature, it's best to let it come to room temperature after being stored at a cooler location.
+
+### Conclusion:
+In summary, while red wine shouldn't be kept in the fridge for long-term storage, a short chilling period can enhance your wine experience. Just remember to serve it at the right temperature for the best flavors! If you're planning to pair it with spicy dishes, slightly chilling a medium-bodied red can help balance the heat and enhance the fruitiness, making for a delightful meal. Enjoy your wine!
+You: exit
+
