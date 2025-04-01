@@ -49,23 +49,23 @@ The project is organized into several key modules:
 - Scrapes wine data and images from Vivino.
 - Implements batch processing, user-agent rotation, and error handling.
 
-### 2. Data Cleaning (Cleaning.py)
+### 2. Data Cleaning ([Cleaning.py](https://github.com/ShivamJoshi89/ai_wine_recommendor_chatbot/blob/main/data/Cleaning.py))
 - Cleans and standardizes text fields.
 - Imputes missing taste and alcohol content using XGBoost and custom rounding.
 
-### 3. Natural Language Understanding (ner.py & NLU scripts)
+### 3. Natural Language Understanding ([ner.py & NLU scripts](https://github.com/ShivamJoshi89/ai_wine_recommendor_chatbot/blob/main/nlu/ner.py))
 - Trains intent classifiers and NER models using Hugging Face Transformers.
 - Processes user queries to extract actionable entities.
 
-### 4. Recommendation Engine (rr_engine.py)
+### 4. Recommendation Engine ([rr_engine.py](https://github.com/ShivamJoshi89/ai_wine_recommendor_chatbot/blob/main/retrieval_recommendation_engine/rr_engine.py))
 - Uses Elasticsearch for keyword-based search.
 - Employs FAISS for semantic search with Sentence Transformers.
 - Combines results with adjustable weighting.
 
-### 5. RAG Module (rag_module.py)
+### 5. RAG Module ([rag_module.py](https://github.com/ShivamJoshi89/ai_wine_recommendor_chatbot/blob/main/RAGs/rag_module.py))
 - Retrieves expert passages from a curated PDF (e.g., “What to Drink with What You Eat”) to enhance recommendation context.
 
-### 6. Response Generation (response_generator_openai.py)
+### 6. Response Generation ([response_generator_openai.py](https://github.com/ShivamJoshi89/ai_wine_recommendor_chatbot/blob/main/Response_generator/response_generator_openai.py))
 - Constructs detailed prompts including conversational history, wine details, and expert advice.
 - Uses OpenAI’s API (GPT-based models) for natural language responses.
 
