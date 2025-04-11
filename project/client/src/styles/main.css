@@ -1,0 +1,33 @@
+/* client/src/styles/main.css */
+
+/* Global resets and typography */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  /* Responsive container padding */
+  .container {
+    padding: 0 16px;
+  }
+  
+  /* Custom styles for header and footer */
+  .header {
+    background-color: #8e44ad;
+    padding: 8px 16px;
+  }
+  
+  .footer {
+    background-color: #f5f5f5;
+    text-align: center;
+    padding: 16px;
+  }
+  
+  /* Media queries for small devices */
+  @media (max-width: 600px) {
+    .header .nav-buttons {
+      display: none; /* Hide nav buttons on small screens (or implement a hamburger menu) */
+    }
+  }
+  
