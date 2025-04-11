@@ -17,21 +17,16 @@ from transformers import (
 ##################################
 # CONFIGURATION & PATHS
 ##################################
-
-# Get the directory where this script is located.
 script_dir = os.path.dirname(os.path.abspath(__file__))
-
-# Since this script is in the nlu folder and your JSON files are also in this folder,
-# we join the file names directly with script_dir.
 intent_data_path = os.path.join(script_dir, "sample_intent_data.json")
 entity_data_path = os.path.join(script_dir, "final_corrected_annotated_wine_queries.json")
 
-# ----- Intent Labels -----
+# Intent labels and mapping
 intent_labels = ["recommend_wine", "food_pairing", "product_details"]
 intent_label2id = {label: idx for idx, label in enumerate(intent_labels)}
 intent_id2label = {idx: label for label, idx in intent_label2id.items()}
 
-# ----- Entity Labels (BIO scheme) -----
+# Entity labels (BIO scheme) and mapping
 entity_labels = [
     "O", 
     "B-WINE_TYPE", "I-WINE_TYPE",
@@ -50,14 +45,11 @@ entity_model_checkpoint = "bert-base-uncased"
 ##################################
 # INTENT CLASSIFICATION TRAINING
 ##################################
-
-# Load synthetic intent data (replace with your production data later)
 with open(intent_data_path, "r") as f:
     intent_data = json.load(f)
 intent_dataset = Dataset.from_dict(intent_data)
 intent_dataset = intent_dataset.train_test_split(test_size=0.2)
 
-# Tokenizer for intent classification.
 intent_tokenizer = AutoTokenizer.from_pretrained(intent_model_checkpoint)
 
 def tokenize_intent(examples):
@@ -71,7 +63,6 @@ def add_intent_label_ids(examples):
 
 tokenized_intent_dataset = tokenized_intent_dataset.map(add_intent_label_ids, batched=True)
 
-# Load the DistilBERT model for intent classification.
 intent_model = AutoModelForSequenceClassification.from_pretrained(
     intent_model_checkpoint,
     num_labels=len(intent_labels),
@@ -106,7 +97,6 @@ print("Intent Evaluation:", intent_eval)
 intent_model.save_pretrained("./intent_model")
 intent_tokenizer.save_pretrained("./intent_model")
 
-# Create an intent classification pipeline.
 intent_classifier = pipeline(
     "text-classification",
     model="./intent_model",
@@ -120,13 +110,10 @@ def classify_intent(text):
 ##################################
 # ENTITY EXTRACTION (NER) TRAINING
 ##################################
-
-# Load entity annotation data.
 entity_dataset = load_dataset("json", data_files=entity_data_path)
 if "test" not in entity_dataset.keys():
     entity_dataset = entity_dataset["train"].train_test_split(test_size=0.2)
 
-# Tokenizer for entity extraction.
 entity_tokenizer = AutoTokenizer.from_pretrained(entity_model_checkpoint, use_fast=True)
 
 def tokenize_and_align_labels_entities(examples):
@@ -140,21 +127,19 @@ def tokenize_and_align_labels_entities(examples):
     all_labels = []
     for i, offsets in enumerate(tokenized_inputs["offset_mapping"]):
         label_ids = [-100] * len(tokenized_inputs["input_ids"][i])
-        entities = examples["entities"][i]
-        for entity in entities:
+        for entity in examples["entities"][i]:
             ent_start = entity["start"]
             ent_end = entity["end"]
-            ent_label = entity["label"]
             first_token = True
             for idx, (start, end) in enumerate(offsets):
                 if start == end:
                     continue
                 if end > ent_start and start < ent_end:
                     if first_token:
-                        label_ids[idx] = entity_label2id["B-" + ent_label]
+                        label_ids[idx] = entity_label2id["B-" + entity["label"]]
                         first_token = False
                     else:
-                        label_ids[idx] = entity_label2id["I-" + ent_label]
+                        label_ids[idx] = entity_label2id["I-" + entity["label"]]
         all_labels.append(label_ids)
     tokenized_inputs["labels"] = all_labels
     tokenized_inputs.pop("offset_mapping")
@@ -169,6 +154,9 @@ entity_model = AutoModelForTokenClassification.from_pretrained(
     label2id=entity_label2id
 )
 
+from transformers import DataCollatorForTokenClassification
+data_collator_entity = DataCollatorForTokenClassification(entity_tokenizer)
+
 training_args_entity = TrainingArguments(
     output_dir="./wine_ner_model",
     evaluation_strategy="epoch",
@@ -181,8 +169,6 @@ training_args_entity = TrainingArguments(
     logging_steps=10,
     save_total_limit=2
 )
-
-data_collator_entity = DataCollatorForTokenClassification(entity_tokenizer)
 
 trainer_entity = Trainer(
     model=entity_model,
@@ -201,7 +187,6 @@ print("Entity Evaluation:", entity_eval)
 entity_model.save_pretrained("./wine_ner_model")
 entity_tokenizer.save_pretrained("./wine_ner_model")
 
-# Create a pipeline for entity extraction.
 entity_extraction_pipeline = pipeline(
     "ner",
     model="./wine_ner_model",
@@ -212,7 +197,6 @@ entity_extraction_pipeline = pipeline(
 ##################################
 # POST-PROCESSING FUNCTIONS FOR NER
 ##################################
-
 def predict_entities(text):
     entity_model.eval()
     inputs = entity_tokenizer(text, return_tensors="pt", truncation=True, padding="max_length", max_length=128)
@@ -229,7 +213,6 @@ def predict_entities(text):
     for token, label in zip(tokens, predicted_labels):
         if token in entity_tokenizer.all_special_tokens:
             continue
-        # Skip tokens that are punctuation or too short
         if len(token.strip("##")) <= 1 or re.fullmatch(r'[\W_]+', token):
             continue
         if label.startswith("B-"):
@@ -239,7 +222,7 @@ def predict_entities(text):
         elif label.startswith("I-") and current_entity is not None:
             if token.startswith("##"):
                 token_clean = token.replace("##", "")
-                current_entity["word"] += token_clean  # join without space
+                current_entity["word"] += token_clean
             else:
                 current_entity["word"] += " " + token
         else:
@@ -251,9 +234,6 @@ def predict_entities(text):
     return entities
 
 def merge_adjacent_entities(entities):
-    """
-    Merge adjacent entities with the same label.
-    """
     if not entities:
         return []
     merged = [entities[0]]
@@ -266,20 +246,11 @@ def merge_adjacent_entities(entities):
     return merged
 
 def advanced_filter_entities(entities):
-    """
-    Applies domain-specific filtering:
-      - For PRICE_RANGE, the entity must match a price pattern and have minimum confidence.
-      - For FOOD_PAIRING, enforce a minimum confidence.
-      - For GRAPE_VARIETY, drop stopwords and low-confidence predictions.
-      - For WINE_TYPE and REGION, use valid domain lists.
-      - Remove extra punctuation from the beginning and end of words.
-    """
     filtered = []
     stopwords = {"a", "an", "the", "and", "with", "from", "of", "i", "im", "i'm"}
     punctuation_chars = " -–—,;:.!?'\""
     for ent in entities:
         word = ent["word"].strip(punctuation_chars).lower()
-        # Clean food pairing phrases
         if ent["label"] == "FOOD_PAIRING":
             word = word.replace("pairs well with", "").replace("well with", "").strip()
         ent["word"] = word
@@ -311,10 +282,6 @@ def advanced_filter_entities(entities):
     return filtered
 
 def postprocess_pipeline_output(pipeline_output):
-    """
-    Converts the Hugging Face pipeline output to our internal format,
-    applies advanced filtering, and merges adjacent entities.
-    """
     converted = []
     for ent in pipeline_output:
         converted.append({
@@ -328,14 +295,7 @@ def postprocess_pipeline_output(pipeline_output):
     merged = merge_adjacent_entities(filtered)
     return merged
 
-##################################
-# UTILITY: LOAD FULL NER PIPELINE (BATCH VERSION)
-##################################
-
 def load_full_ner_pipeline(model_dir="./wine_ner_model"):
-    """
-    Loads the saved NER pipeline and wraps it so that every query is automatically postprocessed.
-    """
     ner_pipe = pipeline(
         "ner",
         model=model_dir,
@@ -348,27 +308,14 @@ def load_full_ner_pipeline(model_dir="./wine_ner_model"):
         return processed_output
     return full_inference
 
-##################################
-# COMBINED NLU INFERENCE (BATCH)
-##################################
-
 def process_query(query):
-    """
-    Processes an incoming query by:
-      1. Classifying its intent.
-      2. Extracting entities using both our custom inference and pipeline.
-    Returns a dictionary with the intent and entities.
-    """
-    # Intent classification
     intent_result = intent_classifier(query)
     intent = intent_result[0]['label']
     
-    # Entity extraction using our custom function
     entities_custom = predict_entities(query)
     entities_custom = advanced_filter_entities(entities_custom)
     entities_custom = merge_adjacent_entities(entities_custom)
     
-    # Entity extraction using pipeline and postprocessing
     pipeline_output = entity_extraction_pipeline(query)
     entities_pipeline = postprocess_pipeline_output(pipeline_output)
     
@@ -379,46 +326,43 @@ def process_query(query):
     }
 
 ##################################
-# PROCESSING A BATCH OF QUERIES VIA DATASET
+# BATCH PROCESSING EXAMPLE (for testing)
 ##################################
-
-# Define 15 sample queries
-sample_queries = [
-    "Looking for an affordable Pinot Noir wine.",
-    "Suggest a white wine made from Chenin Blanc from France.",
-    "Can you recommend a red wine that pairs well with steak?",
-    "Can you recommend a fortified wine that pairs well with seafood?",
-    "What wine pairs well with seafood?",
-    "What wine pairs well with poultry?",
-    "Can you recommend a red wine that pairs well with salad?",
-    "What wine pairs well with steak?",
-    "I need a premium wine from Oakville.",
-    "What is a good Cabernet Sauvignon wine under $162?",
-    "Find me a premium red wine from Dry Creek Valley.",
-    "Suggest a white wine made from Chardonnay from France.",
-    "Can you recommend a sparkling wine that pairs well with cheese?",
-    "What wine pairs well with dessert?",
-    "Can you recommend a red wine that pairs well with cheese?"
-]
-
-# Create a Dataset from the queries
-query_dataset = Dataset.from_dict({"query": sample_queries})
-
-# Map our process_query function over the dataset (batch mode for efficiency)
-def process_query_batch(batch):
-    outputs = [process_query(q) for q in batch["query"]]
-    return {"nlu": outputs}
-
-processed_dataset = query_dataset.map(process_query_batch, batched=True)
-
-# Convert results to a dictionary and print with JSON formatting
-results_dict = {f"Query {i+1}": {"query": q, "nlu": out} 
-                for i, (q, out) in enumerate(zip(query_dataset["query"], processed_dataset["nlu"]))}
-
-print(json.dumps(results_dict, indent=2, default=lambda x: float(x) if isinstance(x, np.float32) else x))
-
-# For demonstration, load the full NER pipeline and process the first query
-full_ner = load_full_ner_pipeline()
-processed_entities = full_ner(sample_queries[0])
-print("\nProcessed NER Output from loaded pipeline for Query 1:")
-print(json.dumps(processed_entities, indent=2, default=lambda x: float(x) if isinstance(x, np.float32) else x))
+if __name__ == "__main__":
+    sample_queries = [
+        "Looking for an affordable Pinot Noir wine.",
+        "Suggest a white wine made from Chenin Blanc from France.",
+        "Can you recommend a red wine that pairs well with steak?",
+        "Can you recommend a fortified wine that pairs well with seafood?",
+        "What wine pairs well with seafood?",
+        "What wine pairs well with poultry?",
+        "Can you recommend a red wine that pairs well with salad?",
+        "What wine pairs well with steak?",
+        "I need a premium wine from Oakville.",
+        "What is a good Cabernet Sauvignon wine under $162?",
+        "Find me a premium red wine from Dry Creek Valley.",
+        "Suggest a white wine made from Chardonnay from France.",
+        "Can you recommend a sparkling wine that pairs well with cheese?",
+        "What wine pairs well with dessert?",
+        "Can you recommend a red wine that pairs well with cheese?"
+    ]
+    
+    from datasets import Dataset
+    query_dataset = Dataset.from_dict({"query": sample_queries})
+    
+    def process_query_batch(batch):
+        outputs = [process_query(q) for q in batch["query"]]
+        return {"nlu": outputs}
+    
+    processed_dataset = query_dataset.map(process_query_batch, batched=True)
+    results_dict = {
+        f"Query {i+1}": {"query": q, "nlu": out}
+        for i, (q, out) in enumerate(zip(query_dataset["query"], processed_dataset["nlu"]))
+    }
+    
+    print(json.dumps(results_dict, indent=2, default=lambda x: float(x) if isinstance(x, np.float32) else x))
+    
+    full_ner = load_full_ner_pipeline()
+    processed_entities = full_ner(sample_queries[0])
+    print("\nProcessed NER Output for Query 1:")
+    print(json.dumps(processed_entities, indent=2, default=lambda x: float(x) if isinstance(x, np.float32) else x))
