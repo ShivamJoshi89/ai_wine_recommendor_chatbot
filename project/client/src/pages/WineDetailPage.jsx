@@ -37,7 +37,9 @@ const WineDetailPage = () => {
   if (loading) {
     return (
       <Container sx={{ py: 5 }}>
-        <Typography variant="h6">Loading...</Typography>
+        <Typography variant="h6" sx={{ color: 'text.primary' }}>
+          Loading...
+        </Typography>
       </Container>
     );
   }
@@ -58,13 +60,15 @@ const WineDetailPage = () => {
         py: 5,
         position: 'relative',
         zIndex: 2,
-        backgroundColor: 'rgba(255,255,255,0.85)',
-        borderRadius: 2,
-        boxShadow: 3,
         mt: 4,
+        // Remove semi-transparent background, borderRadius, and boxShadow
       }}
     >
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
+        {/* 
+          The Paper is set to transparent with no shadow, 
+          so the background remains dark from your theme.
+        */}
         <Paper elevation={3} sx={{ p: 4, backgroundColor: 'transparent', boxShadow: 'none' }}>
           <Grid container spacing={4}>
             {/* Image Section */}
@@ -83,42 +87,75 @@ const WineDetailPage = () => {
             {/* Details Section */}
             <Grid item xs={12} md={6}>
               <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                <Typography variant="h4" gutterBottom sx={{ textTransform: 'uppercase' }}>
+                <Typography
+                  variant="h4"
+                  gutterBottom
+                  sx={{ textTransform: 'uppercase', color: 'text.primary' }}
+                >
                   {wine.wine_name}
                 </Typography>
-                <Typography variant="h6" color="text.secondary" sx={{ textTransform: 'uppercase' }}>
+                <Typography
+                  variant="h6"
+                  sx={{ color: 'text.secondary', textTransform: 'uppercase' }}
+                >
                   {wine.winery} • {wine.country} • {wine.region}
                 </Typography>
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                  <Typography variant="h6" color="primary" sx={{ textTransform: 'uppercase' }}>
+                  <Typography
+                    variant="h6"
+                    sx={{ color: 'primary.main', textTransform: 'uppercase' }}
+                  >
                     ${wine.price}
                   </Typography>
-                  <Typography variant="body1" color="text.secondary" sx={{ textTransform: 'uppercase' }}>
+                  <Typography
+                    variant="body1"
+                    sx={{ color: 'text.secondary', textTransform: 'uppercase' }}
+                  >
                     {wine.rating} Stars
                   </Typography>
                 </Box>
                 <Divider sx={{ my: 2 }} />
-                <Typography variant="subtitle1" fontWeight="bold" sx={{ textTransform: 'uppercase' }}>
+                <Typography
+                  variant="subtitle1"
+                  fontWeight="bold"
+                  sx={{ textTransform: 'uppercase', color: 'text.primary' }}
+                >
                   Description
                 </Typography>
-                <Typography variant="body1">{wine.wine_description_1}</Typography>
-                {wine.wine_description_2 && <Typography variant="body1">{wine.wine_description_2}</Typography>}
+                <Typography variant="body1" sx={{ color: 'text.primary' }}>
+                  {wine.wine_description_1}
+                </Typography>
+                {wine.wine_description_2 && (
+                  <Typography variant="body1" sx={{ color: 'text.primary' }}>
+                    {wine.wine_description_2}
+                  </Typography>
+                )}
                 <Divider sx={{ my: 2 }} />
-                <Typography variant="subtitle1" fontWeight="bold" sx={{ textTransform: 'uppercase' }}>
+                <Typography
+                  variant="subtitle1"
+                  fontWeight="bold"
+                  sx={{ textTransform: 'uppercase', color: 'text.primary' }}
+                >
                   Food Pairing:
                 </Typography>
-                <Typography variant="body2">{wine.food_pairing}</Typography>
+                <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                  {wine.food_pairing}
+                </Typography>
                 <Divider sx={{ my: 2 }} />
-                <Typography variant="subtitle1" fontWeight="bold" sx={{ textTransform: 'uppercase' }}>
+                <Typography
+                  variant="subtitle1"
+                  fontWeight="bold"
+                  sx={{ textTransform: 'uppercase', color: 'text.primary' }}
+                >
                   Additional Details:
                 </Typography>
-                <Typography variant="body2" sx={{ textTransform: 'uppercase' }}>
+                <Typography variant="body2" sx={{ textTransform: 'uppercase', color: 'text.secondary' }}>
                   Grape Type: {wine.grape_type_list}
                 </Typography>
-                <Typography variant="body2" sx={{ textTransform: 'uppercase' }}>
+                <Typography variant="body2" sx={{ textTransform: 'uppercase', color: 'text.secondary' }}>
                   Alcohol Content: {wine.alcohol_content}%
                 </Typography>
-                <Typography variant="body2" sx={{ textTransform: 'uppercase' }}>
+                <Typography variant="body2" sx={{ textTransform: 'uppercase', color: 'text.secondary' }}>
                   Bottle Closure: {wine.bottle_closure}
                 </Typography>
                 <Box sx={{ mt: 3 }}>

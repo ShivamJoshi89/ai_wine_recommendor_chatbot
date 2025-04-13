@@ -1,6 +1,6 @@
 // client/src/pages/About.jsx
 import React from 'react';
-import { Container, Typography, Box, Card, CardMedia, CardContent } from '@mui/material';
+import { Container, Typography, Box, CardMedia } from '@mui/material';
 import { motion } from 'framer-motion';
 import homeImage from '../assets/images/home_page.jpg';
 
@@ -8,52 +8,87 @@ const About = () => {
   return (
     <Container
       sx={{
-        py: 5,
         position: 'relative',
         zIndex: 2,
-        backgroundColor: 'rgba(255,255,255,0.85)',
-        borderRadius: 2,
-        boxShadow: 3,
         mt: 4,
+        mb: 8,
+        px: { xs: 2, md: 4 },
+        backgroundColor: 'transparent',
       }}
     >
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
-        <Typography variant="h3" align="center" gutterBottom>
+      {/* Page Title */}
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <Typography
+          variant="h3"
+          align="center"
+          gutterBottom
+          sx={{
+            color: 'text.primary',
+            textTransform: 'uppercase',
+            fontWeight: 700,
+            letterSpacing: 2,
+          }}
+        >
           About Wine Recommender
+        </Typography>
+        <Typography
+          variant="subtitle1"
+          align="center"
+          sx={{ color: 'text.secondary', mb: 4, fontStyle: 'italic' }}
+        >
+          Your personal sommelier in the digital age.
         </Typography>
       </motion.div>
 
-      {/* Inner box to hold card, also semi-transparent */}
+      {/* Glassmorphic Panel */}
       <Box
         sx={{
-          mt: 4,
-          p: 2,
-          backgroundColor: 'rgba(255,255,255,0.75)',
-          borderRadius: 2,
-          boxShadow: 2,
+          position: 'relative',
+          mx: 'auto',
+          maxWidth: 900,
+          borderRadius: 3,
+          overflow: 'hidden',
+          backdropFilter: 'blur(10px)',
+          backgroundColor: 'rgba(255,255,255,0.05)',
+          border: '1px solid rgba(255,255,255,0.15)',
+          boxShadow: '0 8px 32px rgba(0,0,0,0.37)',
         }}
       >
-        <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-          <Card
-            sx={{
-              maxWidth: 700,
-              backgroundColor: 'transparent',
-              boxShadow: 'none',
-            }}
+        {/* Background Image */}
+        <CardMedia
+          component="div"
+          sx={{
+            height: { xs: 200, md: 300 },
+            backgroundImage: `url(${homeImage})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            filter: 'brightness(0.6)',
+          }}
+        />
+
+        {/* Text Content */}
+        <Box sx={{ p: { xs: 3, md: 5 } }}>
+          <Typography
+            variant="body1"
+            align="center"
+            sx={{ color: 'text.primary', fontSize: '1.1rem', mb: 2, lineHeight: 1.6 }}
           >
-            <CardMedia
-              component="img"
-              height="300"
-              image={homeImage}
-              alt="Wine bottle"
-              sx={{ borderRadius: 1 }}
-            />
-            <CardContent>
-              <Typography variant="body1" color="text.secondary">
-                Welcome to Wine Recommender, your personal guide to discovering the perfect wine for every occasion. Our AI-powered platform analyzes your taste preferences and pairs them with our extensive wine catalog to provide personalized recommendations.
-              </Typography>
-            </CardContent>
-          </Card>
+            Welcome to <strong>Wine Recommender</strong>, your personal guide to discovering the perfect
+            wine for every occasion. Our AI‑powered platform analyzes your taste preferences and pairs
+            them with our extensive wine catalog to provide personalized recommendations.
+          </Typography>
+          <Typography
+            variant="body2"
+            align="center"
+            sx={{ color: 'text.secondary', fontSize: '0.9rem', lineHeight: 1.5 }}
+          >
+            Whether you’re a seasoned connoisseur or just beginning your journey, we make it effortless
+            to explore varietals, regions, and vintages. Cheers to discovering your next favorite bottle!
+          </Typography>
         </Box>
       </Box>
     </Container>

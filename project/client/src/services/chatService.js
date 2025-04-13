@@ -20,6 +20,7 @@ const sendMessage = async (message, token) => {
     );
     return response.data;
   } catch (error) {
+    console.error('Error in sendMessage:', error);
     throw error;
   }
 };

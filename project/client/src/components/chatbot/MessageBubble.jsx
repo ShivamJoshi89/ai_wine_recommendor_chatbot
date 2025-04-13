@@ -4,9 +4,7 @@ import { Box, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 
 const MessageBubble = ({ sender, text }) => {
-  // Determine if the message is sent by the user or the bot
   const isUser = sender === 'user';
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
@@ -22,8 +20,8 @@ const MessageBubble = ({ sender, text }) => {
       >
         <Box
           sx={{
-            bgcolor: isUser ? '#1976d2' : '#e0e0e0',
-            color: isUser ? '#fff' : '#000',
+            bgcolor: isUser ? 'primary.main' : 'background.paper',
+            color: isUser ? 'primary.contrastText' : 'text.primary',
             p: 1.5,
             borderRadius: 2,
             maxWidth: '70%',
