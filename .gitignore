@@ -1,3 +1,4 @@
 intent_model/
 wine_ner_model/
 Response_generator/.env
+.env

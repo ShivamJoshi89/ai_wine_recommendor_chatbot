@@ -1,4 +1,5 @@
-# ner.py
+# enhanced_ner.py
+
 import os
 import re
 import json
@@ -15,15 +16,15 @@ from transformers import (
     pipeline
 )
 
-##################################
+############################################
 # PRICE FALLBACK HELPER
-##################################
+############################################
 _price_pattern = re.compile(r'\$\s*\d+(?:\.\d+)?')
 
 def fallback_price_from_text(text):
     """
-    If no PRICE_RANGE entity is detected, grab the first $<number> in the text.
-    Returns a dict matching your entity schema or None.
+    If no PRICE_RANGE entity is detected, search for something like "$<number>"
+    and return a dict or None if not found.
     """
     m = _price_pattern.search(text)
     if not m:
@@ -36,19 +37,21 @@ def fallback_price_from_text(text):
         "end": m.end()
     }
 
-##################################
+############################################
 # CONFIGURATION & PATHS
-##################################
+############################################
 script_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Paths to your JSON data
 intent_data_path = os.path.join(script_dir, "sample_intent_data.json")
 entity_data_path = os.path.join(script_dir, "final_corrected_annotated_wine_queries.json")
 
-# Intent labels and mapping
+# Intent labels
 intent_labels = ["recommend_wine", "food_pairing", "product_details"]
 intent_label2id = {label: idx for idx, label in enumerate(intent_labels)}
 intent_id2label = {idx: label for label, idx in intent_label2id.items()}
 
-# Entity labels (BIO scheme) and mapping
+# Entity labels (BIO scheme)
 entity_labels = [
     "O",
     "B-WINE_TYPE", "I-WINE_TYPE",
@@ -60,22 +63,29 @@ entity_labels = [
 entity_label2id = {label: i for i, label in enumerate(entity_labels)}
 entity_id2label = {i: label for label, i in entity_label2id.items()}
 
-# Model checkpoints
+# Pretrained model checkpoints
 intent_model_checkpoint = "distilbert-base-uncased"
 entity_model_checkpoint = "bert-base-uncased"
 
-##################################
+############################################
 # INTENT CLASSIFICATION TRAINING
-##################################
+############################################
 with open(intent_data_path, "r") as f:
     intent_data = json.load(f)
+
+# Convert to HF Dataset
 intent_dataset = Dataset.from_dict(intent_data)
 intent_dataset = intent_dataset.train_test_split(test_size=0.2)
 
 intent_tokenizer = AutoTokenizer.from_pretrained(intent_model_checkpoint)
 
 def tokenize_intent(examples):
-    return intent_tokenizer(examples["text"], truncation=True, padding="max_length", max_length=64)
+    return intent_tokenizer(
+        examples["text"], 
+        truncation=True, 
+        padding="max_length", 
+        max_length=64
+    )
 
 tokenized_intent_dataset = intent_dataset.map(tokenize_intent, batched=True)
 
@@ -95,12 +105,13 @@ intent_model = AutoModelForSequenceClassification.from_pretrained(
 training_args_intent = TrainingArguments(
     output_dir="./intent_model",
     evaluation_strategy="epoch",
-    num_train_epochs=3,
-    per_device_train_batch_size=4,
-    per_device_eval_batch_size=4,
+    num_train_epochs=5,  # up from 3
+    per_device_train_batch_size=8,
+    per_device_eval_batch_size=8,
     learning_rate=2e-5,
     weight_decay=0.01,
-    logging_steps=10
+    logging_steps=10,
+    save_strategy="no"
 )
 
 trainer_intent = Trainer(
@@ -116,9 +127,11 @@ trainer_intent.train()
 intent_eval = trainer_intent.evaluate()
 print("Intent Evaluation:", intent_eval)
 
+# Save the trained intent model
 intent_model.save_pretrained("./intent_model")
 intent_tokenizer.save_pretrained("./intent_model")
 
+# Pipeline for easy intent inference
 intent_classifier = pipeline(
     "text-classification",
     model="./intent_model",
@@ -129,9 +142,9 @@ def classify_intent(text):
     result = intent_classifier(text)
     return result[0]['label']
 
-##################################
+############################################
 # ENTITY EXTRACTION (NER) TRAINING
-##################################
+############################################
 entity_dataset = load_dataset("json", data_files=entity_data_path)
 if "test" not in entity_dataset.keys():
     entity_dataset = entity_dataset["train"].train_test_split(test_size=0.2)
@@ -139,6 +152,9 @@ if "test" not in entity_dataset.keys():
 entity_tokenizer = AutoTokenizer.from_pretrained(entity_model_checkpoint, use_fast=True)
 
 def tokenize_and_align_labels_entities(examples):
+    """
+    Convert text to tokens, then align BIO tags using offset mapping.
+    """
     tokenized_inputs = entity_tokenizer(
         examples["text"],
         truncation=True,
@@ -146,23 +162,29 @@ def tokenize_and_align_labels_entities(examples):
         max_length=128,
         return_offsets_mapping=True
     )
+
     all_labels = []
     for i, offsets in enumerate(tokenized_inputs["offset_mapping"]):
-        label_ids = [-100] * len(tokenized_inputs["input_ids"][i])
-        for entity in examples["entities"][i]:
-            ent_start = entity["start"]
-            ent_end = entity["end"]
+        label_ids = [-100] * len(offsets)
+        for ent in examples["entities"][i]:
+            ent_start = ent["start"]
+            ent_end = ent["end"]
+            label_str = "B-" + ent["label"]  # start with B-
             first_token = True
+
             for idx, (start, end) in enumerate(offsets):
                 if start == end:
                     continue
+                # if there's overlap
                 if end > ent_start and start < ent_end:
                     if first_token:
-                        label_ids[idx] = entity_label2id["B-" + entity["label"]]
+                        label_ids[idx] = entity_label2id.get(label_str, 0)
                         first_token = False
+                        label_str = "I-" + ent["label"]  # subsequent
                     else:
-                        label_ids[idx] = entity_label2id["I-" + entity["label"]]
+                        label_ids[idx] = entity_label2id.get(label_str, 0)
         all_labels.append(label_ids)
+
     tokenized_inputs["labels"] = all_labels
     tokenized_inputs.pop("offset_mapping")
     return tokenized_inputs
@@ -176,19 +198,45 @@ entity_model = AutoModelForTokenClassification.from_pretrained(
     label2id=entity_label2id
 )
 
-from transformers import DataCollatorForTokenClassification
+# We'll compute token-level precision/recall/f1 with seqeval
+from seqeval.metrics import precision_score, recall_score, f1_score
+
+def compute_metrics_ner(p):
+    pred_logits = p.predictions
+    labels = p.label_ids
+    pred_ids = np.argmax(pred_logits, axis=-1)
+
+    true_entities = []
+    pred_entities = []
+
+    for pred_seq, gold_seq in zip(pred_ids, labels):
+        t_tags = []
+        p_tags = []
+        for (pred_id, gold_id) in zip(pred_seq, gold_seq):
+            if gold_id == -100:
+                continue
+            t_tags.append(entity_id2label[gold_id])
+            p_tags.append(entity_id2label[pred_id])
+        true_entities.append(t_tags)
+        pred_entities.append(p_tags)
+
+    precision = precision_score(true_entities, pred_entities)
+    recall = recall_score(true_entities, pred_entities)
+    f1 = f1_score(true_entities, pred_entities)
+    return {"precision": precision, "recall": recall, "f1": f1}
+
 data_collator_entity = DataCollatorForTokenClassification(entity_tokenizer)
 
 training_args_entity = TrainingArguments(
     output_dir="./wine_ner_model",
     evaluation_strategy="epoch",
     save_strategy="epoch",
-    num_train_epochs=5,
+    num_train_epochs=10,  # up from 5
     per_device_train_batch_size=8,
     per_device_eval_batch_size=8,
     learning_rate=2e-5,
     weight_decay=0.01,
-    logging_steps=10,
+    logging_steps=50,
     save_total_limit=2
 )
 
@@ -198,7 +246,8 @@ trainer_entity = Trainer(
     train_dataset=tokenized_entity_datasets["train"],
     eval_dataset=tokenized_entity_datasets["test"],
     tokenizer=entity_tokenizer,
-    data_collator=data_collator_entity
+    data_collator=data_collator_entity,
+    compute_metrics=compute_metrics_ner
 )
 
 print("Training entity extraction model...")
@@ -209,6 +258,7 @@ print("Entity Evaluation:", entity_eval)
 entity_model.save_pretrained("./wine_ner_model")
 entity_tokenizer.save_pretrained("./wine_ner_model")
 
+# Quick pipeline for NER inference
 entity_extraction_pipeline = pipeline(
     "ner",
     model="./wine_ner_model",
@@ -216,163 +266,139 @@ entity_extraction_pipeline = pipeline(
     aggregation_strategy="simple"
 )
 
-##################################
-# POST-PROCESSING FUNCTIONS FOR NER
-##################################
-def predict_entities(text):
-    entity_model.eval()
-    inputs = entity_tokenizer(text, return_tensors="pt", truncation=True, padding="max_length", max_length=128)
-    inputs = {k: v.to(entity_model.device) for k, v in inputs.items()}
-    with torch.no_grad():
-        outputs = entity_model(input_ids=inputs["input_ids"], attention_mask=inputs["attention_mask"])
-    pred_label_ids = torch.argmax(outputs.logits, dim=-1)
-    token_ids = inputs["input_ids"][0]
-    tokens = entity_tokenizer.convert_ids_to_tokens(token_ids)
-    predicted_labels = [entity_id2label[label_id.item()] for label_id in pred_label_ids[0]]
+############################################
+# ADVANCED FILTERING LOGIC
+############################################
 
-    entities = []
-    current_entity = None
-    for token, label in zip(tokens, predicted_labels):
-        if token in entity_tokenizer.all_special_tokens:
-            continue
-        if len(token.strip("##")) <= 1 or re.fullmatch(r'[\W_]+', token):
-            continue
-        if label.startswith("B-"):
-            if current_entity:
-                entities.append(current_entity)
-            current_entity = {"label": label[2:], "word": token}
-        elif label.startswith("I-") and current_entity is not None:
-            if token.startswith("##"):
-                token_clean = token.replace("##", "")
-                current_entity["word"] += token_clean
-            else:
-                current_entity["word"] += " " + token
-        else:
-            if current_entity:
-                entities.append(current_entity)
-                current_entity = None
-    if current_entity:
-        entities.append(current_entity)
-    return entities
+MIN_SCORE_THRESHOLD = 0.80  # Discard predictions below this confidence
 
-def merge_adjacent_entities(entities):
-    if not entities:
-        return []
-    merged = [entities[0]]
-    for ent in entities[1:]:
-        last = merged[-1]
-        if ent["label"] == last["label"]:
-            merged[-1]["word"] += " " + ent["word"]
-        else:
-            merged.append(ent)
-    return merged
+# Regex for valid price references: "under $30", "$50", "above 100 dollars", etc.
+price_regex = re.compile(
+    r"(?:under|above|below)\s*\$?\d+|\$\s*\d+|\d+\s*dollars\b",
+    flags=re.IGNORECASE
+)
+
+# Example domain dictionaries
+valid_wine_types = {
+    "red wine", "white wine", "sparkling wine", "rosé wine",
+    "ros wine", "fortified wine", "dessert wine"
+}
+valid_regions = {
+    "napa valley", "france", "champagne", "barossa valley", "rioja",
+    "tuscany", "italy", "oregon", "washington", "california", "bordeaux",
+    "burgundy", "maipo valley"  # etc...
+}
+valid_food = {
+    "steak", "seafood", "poultry", "spicy food", "cheese", "salad", 
+    "dessert", "pizza", "pasta", "chocolate", "charcuterie"
+}
 
 def advanced_filter_entities(entities):
+    """
+    Filter out nonsense or spurious predictions:
+    1) Score threshold
+    2) Label-specific checks (regex for PRICE_RANGE, dictionary checks, etc.)
+    """
     filtered = []
-    stopwords = {"a", "an", "the", "and", "with", "from", "of", "i", "im", "i'm"}
-    punctuation_chars = " -–—,;:.!?'\""
     for ent in entities:
-        word = ent["word"].strip(punctuation_chars).lower()
+        label = ent["label"]
+        word = ent["word"].lower().strip(".,!?-\"'()[]")  # basic cleanup
+        score = ent["score"]
 
-        if ent["label"] == "FOOD_PAIRING":
-            word = word.replace("pairs well with", "").replace("well with", "").strip()
+        # 1) Score threshold
+        if score < MIN_SCORE_THRESHOLD:
+            continue
 
-        # --- PRICE cleanup: keep only the $<number> ---
-        if ent["label"] == "PRICE_RANGE":
-            m = re.search(r'\$\s*\d+(?:\.\d+)?', word)
-            if not m or ent.get("score", 1.0) < 0.5:
+        # 2) Label-specific logic
+        if label == "PRICE_RANGE":
+            if not price_regex.search(word):
+                # if "affordable" or "for" got labeled incorrectly, skip
                 continue
-            word = m.group()
-
-        ent["word"] = word
-
-        if len(word) < 2:
-            continue
-
-        if ent["label"] == "PRICE_RANGE":
-            # we've already cleaned & thresholded
-            pass
-        if ent["label"] == "FOOD_PAIRING" and ent.get("score", 1.0) < 0.5:
-            continue
-        if ent["label"] == "WINE_TYPE":
-            valid_wine_types = {"red wine", "white wine", "sparkling wine", "rosé wine", "fortified wine"}
+        elif label == "WINE_TYPE":
             if word not in valid_wine_types:
                 continue
-        if ent["label"] == "REGION":
-            valid_regions = {"italy", "france", "united states", "napa valley", "champagne", "barolo"}
+        elif label == "REGION":
             if word not in valid_regions:
                 continue
-        if ent["label"] == "GRAPE_VARIETY":
-            if word in stopwords or len(word) < 3:
+        elif label == "FOOD_PAIRING":
+            if word not in valid_food:
                 continue
-            word = re.sub(r'\s+from\s*$', '', word)
-            ent["word"] = word
-            if ent.get("score", 1.0) < 0.7:
-                continue
+        elif label == "GRAPE_VARIETY":
+            # optional: skip single-letter, or check known grapes, etc.
+            # e.g. if len(word) < 3: continue
+            pass
 
+        # If it survived, keep it
         filtered.append(ent)
     return filtered
 
+############################################
+# POSTPROCESS: Convert pipeline output & filter
+############################################
 def postprocess_pipeline_output(pipeline_output):
-    converted = []
+    """
+    Convert pipeline output format into a simpler list of:
+    { label, word, score, start, end }
+    Then apply advanced filtering.
+    """
+    # raw pipeline output has "entity_group", "word", "score", "start", "end"
+    results = []
     for ent in pipeline_output:
-        converted.append({
+        results.append({
             "label": ent["entity_group"],
             "word": ent["word"],
             "score": ent["score"],
             "start": ent["start"],
             "end": ent["end"]
         })
-    filtered = advanced_filter_entities(converted)
-    merged = merge_adjacent_entities(filtered)
-    return merged
 
-def load_full_ner_pipeline(model_dir="./wine_ner_model"):
-    ner_pipe = pipeline(
-        "ner",
-        model=model_dir,
-        tokenizer=model_dir,
-        aggregation_strategy="simple"
-    )
-    def full_inference(query):
-        raw_output = ner_pipe(query)
-        processed_output = postprocess_pipeline_output(raw_output)
-        return processed_output
-    return full_inference
+    # Filter out spurious predictions
+    final = advanced_filter_entities(results)
+    return final
 
+############################################
+# MAIN INFERENCE FUNCTION
+############################################
 def process_query(query):
+    """
+    - Classify intent
+    - Extract NER pipeline results
+    - Postprocess (filter) them
+    - If no PRICE_RANGE is found, fallback to searching for $<number> in text
+    """
+    # 1) Intent
     intent = classify_intent(query)
 
-    entities_custom = predict_entities(query)
-    entities_custom = advanced_filter_entities(entities_custom)
-    entities_custom = merge_adjacent_entities(entities_custom)
+    # 2) Raw pipeline output
+    raw_ents = entity_extraction_pipeline(query)
+    # 3) Postprocess
+    entities = postprocess_pipeline_output(raw_ents)
 
-    pipeline_output = entity_extraction_pipeline(query)
-    entities_pipeline = postprocess_pipeline_output(pipeline_output)
-
-    # PRICE fallback if none found
-    found_price = any(ent["label"] == "PRICE_RANGE" for ent in entities_custom + entities_pipeline)
+    # 4) Price fallback
+    found_price = any(ent["label"] == "PRICE_RANGE" for ent in entities)
     if not found_price:
-        price_ent = fallback_price_from_text(query)
-        if price_ent:
-            entities_custom.append(price_ent)
+        fallback_ent = fallback_price_from_text(query)
+        if fallback_ent:
+            entities.append(fallback_ent)
 
     return {
         "intent": intent,
-        "entities_custom": entities_custom,
-        "entities_pipeline": entities_pipeline
+        "entities": entities
     }
 
-##################################
-# BATCH PROCESSING EXAMPLE
-##################################
+############################################
+# BATCH PROCESS EXAMPLE
+############################################
 if __name__ == "__main__":
     sample_queries = [
         "Looking for an affordable Pinot Noir wine.",
         "Suggest a white wine made from Chenin Blanc from France.",
         "Can you recommend a red wine that pairs well with steak?",
         "I want a red wine under $30 for spicy food.",
-        "recommend me a red wine from napa valley which is above 150 dollars"
+        "recommend me a red wine from napa valley which is above 150 dollars",
+        # Some additional tricky ones:
+        "Can I get a white wine for dessert from oregon that is above $25?",
+        "I need a cheap syrah from barossa valley"
     ]
 
     from datasets import Dataset

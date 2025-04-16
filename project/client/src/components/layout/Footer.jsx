@@ -25,7 +25,7 @@ const Footer = () => {
           }}
         >
           <Typography variant="body1">
-            © {new Date().getFullYear()} Wine Recommender. All rights reserved.
+            © {new Date().getFullYear()} Vino-Sage. All rights reserved.
           </Typography>
           <Box>
             <Link href="#" color="inherit" sx={{ mx: 1 }}>

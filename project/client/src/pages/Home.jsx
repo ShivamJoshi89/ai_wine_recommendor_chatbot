@@ -60,7 +60,7 @@ const Home = () => {
         >
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
             <Typography variant="h2" sx={{ textTransform: 'uppercase', color: 'text.primary', mb: 2 }}>
-              Welcome to Wine Recommender
+              Welcome to Vino-Sage
             </Typography>
             <Typography variant="h6" sx={{ color: 'text.secondary', mb: 2 }}>
               Discover your perfect wine with personalized recommendations.

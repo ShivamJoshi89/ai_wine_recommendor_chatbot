@@ -33,16 +33,15 @@ ner_path = os.path.join(current_dir, "..", "..", "nlu")
 sys.path.extend([p for p in [rr_path, rag_path, ner_path] if p not in sys.path])
 
 # Import necessary functions from the modules.
-# process_query is imported from the NLU module (ner.py)
 from ner import process_query  
 from rr_engine import (
     hybrid_search,
     compute_embeddings,
     build_faiss_index,
-    ES_INDEX,
     RESULT_LIMIT,
     EMBEDDING_MODEL_NAME,
-    extract_price_preferences
+    extract_price_preferences,
+    load_wines_from_mongo
 )
 from rag_module import build_rag_context_block
 
@@ -54,9 +53,8 @@ client = OpenAI(api_key=api_key)
 
 BASE_WINE_DETAIL_URL = "http://localhost:3000/wine-details/"
 
-# Load wine data using rr_engine's loader
 try:
-    from rr_engine import load_wines_from_mongo
+    # Load wine data using rr_engine's loader
     wines_list = load_wines_from_mongo()
     wine_df = pd.DataFrame(wines_list)
 except Exception as e:
@@ -84,6 +82,7 @@ class ResponseGeneratorOpenAI:
                 parts.append(f"User: {turn['user']}")
                 parts.append(f"Assistant: {turn['assistant']}")
             parts.append("")
+
         # Add wine recommendation details.
         if wine_context_list:
             for label, wine in wine_context_list:
@@ -103,11 +102,13 @@ class ResponseGeneratorOpenAI:
                 wine_id = wine.get("id", str(hash(json.dumps(wine, sort_keys=True))))
                 wine_info += f"Link: {BASE_WINE_DETAIL_URL}{wine_id}\n"
                 parts.append(wine_info)
+
         # Include expert advice if available.
         if rag_context:
             parts.append("\nExpert Advice:")
             parts.append(rag_context.strip())
             parts.append("")
+
         greeting = "" if self.chat_history else "Begin with a friendly greeting."
         parts.append(
             f"User Query: {user_query}\n"
@@ -124,34 +125,67 @@ class ResponseGeneratorOpenAI:
 
     def generate_response(self, user_query):
         try:
+            # Run NLU on the user's query.
             nlu_result = process_query(user_query)
             logger.info(f"Processed NLU result: {nlu_result}")
+
             # Check for follow-up questions.
             if self._is_followup_question(user_query):
                 return self._handle_followup(user_query)
+
             # Extract price preferences from query.
             pref_min, pref_max = extract_price_preferences(user_query)
             price_min, price_max = (None, None)
             if pref_min is not None or pref_max is not None:
                 price_min = pref_min
                 price_max = pref_max
+
+            # Start with a copy of the full wine DataFrame.
             filtered_df = wine_df.copy()
+
+            # Apply price filtering.
             if "Price" in filtered_df.columns:
                 if price_max is not None:
                     filtered_df = filtered_df[filtered_df["Price"] <= price_max]
                 if price_min is not None:
                     filtered_df = filtered_df[filtered_df["Price"] >= price_min]
+
+            # --- Apply NLU-derived filters ---
+            for ent in nlu_result["entities_pipeline"] + nlu_result["entities_custom"]:
+                label = ent["label"].upper()  # e.g., "WINE_TYPE", "REGION"
+                word = ent["word"]
+                if label == "WINE_TYPE":
+                    filtered_df = filtered_df[
+                        filtered_df["Wine Type"].str.contains(word, case=False, na=False)
+                    ]
+                elif label == "REGION":
+                    filtered_df = filtered_df[
+                        filtered_df["Region"].str.contains(word, case=False, na=False)
+                    ]
+                elif label == "GRAPE_VARIETY":
+                    filtered_df = filtered_df[
+                        filtered_df["Grape Type List"].str.contains(word, case=False, na=False)
+                    ]
+                elif label == "FOOD_PAIRING":
+                    filtered_df = filtered_df[
+                        filtered_df["Food Pairing"].str.contains(word, case=False, na=False)
+                    ]
+
+            logger.info(f"After NLU filtering, {len(filtered_df)} wines remain.")
+
+            # Run hybrid search over the filtered data.
             results = []
             if not filtered_df.empty:
                 results = hybrid_search(
                     user_query,
                     nlu_result,
-                    ES_INDEX,
-                    self.embedder,
-                    self.faiss_index,
-                    filtered_df,
+                    self.embedder,       # model
+                    self.faiss_index,    # faiss_index
+                    filtered_df,         # wine_df
                     k=RESULT_LIMIT
                 )
+
+            # Construct the context list.
             wine_context_list = []
             if results and nlu_result.get("intent") in {"recommend_wine", "food_pairing"}:
                 wine_context_list = [
@@ -159,14 +193,18 @@ class ResponseGeneratorOpenAI:
                     for i, wine in enumerate(results[:3])
                 ]
             self.last_recommendations = wine_context_list
+
             rag_context = ""
             if nlu_result.get("intent") == "food_pairing":
                 rag_context = build_rag_context_block(user_query, top_k=3)
+
             prompt = self._build_prompt(wine_context_list, user_query, rag_context)
             logger.debug(f"Generated prompt (first 500 chars): {prompt[:500]}...")
+
             response = self._call_openai(prompt)
             self._update_chat_history(user_query, response)
             return response
+
         except Exception as e:
             logger.error(f"Response generation failed: {e}", exc_info=True)
             return "I'm having trouble generating a response. Please try again later."
@@ -207,8 +245,8 @@ class ResponseGeneratorOpenAI:
             r"tell me more(?: about)?(?: the)?(?: first|second|third|\d+)?",
             r"more info(?: on)?(?: the)?(?: first|second|third|\d+)?",
             r"can you elaborate(?: on)?(?: the)?(?: first|second|third|\d+)?",
-            r"explain(?: the)?(?: first|second|third|\d+)?",
-            r"what makes(?: the)?(?: first|second|third|\d+)? (?:special|good|better)"
+            r"explain(?: the)?(?: first|second|third)?",
+            r"what makes(?: the)?(?: first|second|third)? (?:special|good|better)"
         ]
         return any(re.search(p, query.lower()) for p in followup_patterns)
 
@@ -223,28 +261,33 @@ class ResponseGeneratorOpenAI:
             num_match = re.search(r'\d+', query)
             if num_match:
                 wine_idx = min(int(num_match.group()) - 1, len(self.last_recommendations) - 1)
+
         if wine_idx >= len(self.last_recommendations):
             return "I don't have that recommendation saved. Could you please ask again?"
+
         wine = self.last_recommendations[wine_idx][1]
         prompt = (
             f"Provide detailed sommelier information about this wine:\n\n"
             f"Name: {wine.get('Wine Name', 'Unknown')}\n"
-            f"Type: {wine.get('Primary Type', 'Unknown')}\n"
+            f"Type: {wine.get('Primary Type', wine.get('Wine Type', 'Unknown'))}\n"
             f"Region: {wine.get('Region', 'Unknown')}\n"
         )
         price = wine.get("Price", 0)
+        price_str = ""
         try:
             price_str = f"${float(price):.2f}"
-        except (ValueError, TypeError):
+        except Exception:
             price_str = str(price)
         prompt += f"Price: {price_str}\n"
         prompt += (
             f"Alcohol: {wine.get('Alcohol Content (%)', 'Unknown')}%\n"
             f"Food Pairings: {wine.get('Food Pairing', 'Not specified')}\n"
             f"Description: {wine.get('Wine Description 1', 'No description available')}\n\n"
-            "Include detailed tasting notes, ideal serving temperature, decanting recommendations, cellaring potential, and additional food pairing suggestions. "
+            "Include detailed tasting notes, ideal serving temperature, decanting recommendations, "
+            "cellaring potential, and additional food pairing suggestions. "
             "Format your response in plain text with clear paragraphs."
         )
+
         response = self._call_openai(prompt)
         self._update_chat_history(query, response)
         return response
@@ -257,13 +300,13 @@ if __name__ == "__main__":
         while True:
             try:
                 query = input("\nYou: ").strip()
-                if query.lower() in ['exit', 'quit']:
+                if query.lower() in ('exit', 'quit'):
                     break
                 if not query:
                     continue
                 logger.info(f"Processing query: {query}")
                 response = assistant.generate_response(query)
-                print("\nSommelier:", response)
+                print(f"\nSommelier: {response}")
             except KeyboardInterrupt:
                 break
             except Exception as e:

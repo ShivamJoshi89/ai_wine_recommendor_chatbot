@@ -6,13 +6,15 @@ import logging
 import numpy as np
 import pandas as pd
 import faiss
-from elasticsearch import Elasticsearch, helpers
-from sentence_transformers import SentenceTransformer
-from sklearn.preprocessing import normalize
 import re
 import asyncio
 from datetime import datetime
 from dotenv import load_dotenv
+from pymongo import MongoClient
+from urllib.parse import quote_plus
+from sentence_transformers import SentenceTransformer
+from sklearn.preprocessing import normalize
+from bson import ObjectId
 
 # Configure logging
 logging.basicConfig(
@@ -21,12 +23,11 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Load environment variables
+# Load environment variables from .env file
 env_path = os.path.join(os.path.dirname(__file__), '.env')
 load_dotenv(dotenv_path=env_path)
 
 # Constants
-ES_INDEX = "winerecommendor"
 RESULT_LIMIT = 15
 EMBEDDING_MODEL_NAME = "all-MiniLM-L6-v2"
 
@@ -57,19 +58,17 @@ def extract_price_preferences(query):
 # Data Loading and Cleaning
 ###############################################
 def load_wines_from_mongo():
+    """
+    Connects to MongoDB Atlas and loads wine data from the 'wines' collection
+    in the WineRecommendationProject database. Falls back to a CSV file if needed.
+    """
     try:
-        from pymongo import MongoClient
-        from urllib.parse import quote_plus
-        
-        username = quote_plus(os.getenv("MONGO_USER", ""))
-        password = quote_plus(os.getenv("MONGO_PASS", ""))
-        uri = f"mongodb+srv://{username}:{password}@your-cluster.mongodb.net/"
-        
-        client = MongoClient(uri, retryWrites=True, w="majority")
-        db = client.your_database
-        
+        # Hardcoded connection string – ensure this is correct for your Atlas cluster.
+        MONGO_URI = "mongodb+srv://shivamjoshi89us:DEuNYRPbElRfml0e@cluster0.twkupzt.mongodb.net/WineRecommendationProject?retryWrites=true&w=majority&appName=Cluster0"
+        client = MongoClient(MONGO_URI)
+        db = client["WineRecommendationProject"]
         wines = []
-        cursor = db.wines.find({}, {'_id': 0})
+        cursor = db["wines"].find({}, {'_id': 0})
         for wine in cursor:
             wine.setdefault("Wine Name", "Unknown")
             wine.setdefault("Wine Description 1", "")
@@ -110,66 +109,41 @@ def clean_dataframe(df):
     return df.applymap(clean_value)
 
 ###############################################
-# Elasticsearch Client and Indexing
+# MongoDB Atlas Search Functions
 ###############################################
-def get_es_client():
-    from elasticsearch import Elasticsearch
+def search_keyword_mongodb_atlas(query, size=RESULT_LIMIT):
+    """
+    Performs a full-text search using MongoDB Atlas Search via an aggregation pipeline.
+    Assumes that a search index named "search_rr" has been created on your wines collection.
+    The search is conducted across: "Wine Name", "Region", "Grape Type", "Winery", and "primary type".
+    """
     try:
-        return Elasticsearch(
-            hosts=[f"https://127.0.0.1:9200"],
-            basic_auth=(os.getenv("ES_USERNAME", "elastic"), os.getenv("ES_PASSWORD", "password")),
-            verify_certs=False
-        )
-    except Exception as e:
-        logger.error(f"Failed to create Elasticsearch client: {e}")
-        raise
-
-def index_data_elasticsearch(dataframe, index_name=ES_INDEX):
-    try:
-        es = get_es_client()
-        required_columns = {"Wine Name", "Primary Type", "Grape Type List", 
-                            "Wine Description 1", "Food Pairing", "Price", "Region", "Country"}
-        missing_cols = required_columns - set(dataframe.columns)
-        if missing_cols:
-            logger.warning(f"Missing columns in dataframe: {missing_cols}")
-            for col in missing_cols:
-                dataframe[col] = ""
-        mapping = {
-            "mappings": {
-                "properties": {
-                    "Wine Name": {"type": "text"},
-                    "Primary Type": {"type": "text"},
-                    "Grape Type List": {"type": "text"},
-                    "Wine Description 1": {"type": "text"},
-                    "Food Pairing": {"type": "text"},
-                    "Price": {"type": "float"},
-                    "Region": {"type": "text"},
-                    "Country": {"type": "text"}
-                }
-            }
-        }
-        if es.indices.exists(index=index_name):
-            es.indices.delete(index=index_name, ignore=[400, 404])
-        es.indices.create(index=index_name, body=mapping)
-        dataframe = clean_dataframe(dataframe)
-        from elasticsearch import helpers
-        actions = [
+        MONGO_URI = "mongodb+srv://shivamjoshi89us:DEuNYRPbElRfml0e@cluster0.twkupzt.mongodb.net/WineRecommendationProject?retryWrites=true&w=majority&appName=Cluster0"
+        client = MongoClient(MONGO_URI)
+        db = client["WineRecommendationProject"]
+        wines_collection = db.wines
+        pipeline = [
             {
-                "_index": index_name,
-                "_id": idx,
-                "_source": {k: clean_value(v) for k, v in row.to_dict().items()}
-            }
-            for idx, row in dataframe.iterrows()
+                "$search": {
+                    "index": "search_rr",  # Your Atlas Search index name.
+                    "text": {
+                        "query": query,
+                        "path": ["Wine Name", "Region", "Grape Type", "Winery", "primary type"]
+                    }
+                }
+            },
+            {"$addFields": {"score": {"$meta": "searchScore"}}},
+            {"$limit": size}
         ]
-        success_count = 0
-        for ok, _ in helpers.streaming_bulk(es, actions, raise_on_error=False):
-            if ok:
-                success_count += 1
-        logger.info(f"Successfully indexed {success_count}/{len(actions)} documents")
-        return success_count == len(actions)
+        results = list(wines_collection.aggregate(pipeline))
+        # Remove _id if present to prevent serialization issues.
+        for doc in results:
+            if "_id" in doc:
+                del doc["_id"]
+        return results
     except Exception as e:
-        logger.error(f"Indexing failed: {e}")
-        return False
+        logger.error(f"MongoDB Atlas text search failed: {e}")
+        return []
 
 ###############################################
 # Embeddings and FAISS Indexing
@@ -178,7 +152,6 @@ def compute_embeddings(dataframe, model):
     try:
         texts = (dataframe["Wine Description 1"].fillna("") + " " + dataframe["Wine Name"].fillna("")).tolist()
         embeddings = model.encode(texts, convert_to_numpy=True, show_progress_bar=True)
-        from sklearn.preprocessing import normalize
         return normalize(embeddings, norm="l2")
     except Exception as e:
         logger.error(f"Embedding computation failed: {e}")
@@ -189,10 +162,10 @@ def build_faiss_index(embeddings):
         num_embeddings, dim = embeddings.shape
         index = faiss.IndexFlatIP(dim)
         index.add(embeddings)
-        logger.info(f"Built Faiss index with {index.ntotal} vectors")
+        logger.info(f"Built FAISS index with {index.ntotal} vectors")
         return index
     except Exception as e:
-        logger.error(f"Faiss index build failed: {e}")
+        logger.error(f"FAISS index build failed: {e}")
         raise
 
 def search_semantic(query, model, faiss_index, wine_df, k=RESULT_LIMIT):
@@ -213,7 +186,7 @@ def search_semantic(query, model, faiss_index, wine_df, k=RESULT_LIMIT):
         return []
 
 ###############################################
-# Hybrid Search Functions
+# Hybrid Search Functions (Using MongoDB Atlas Search)
 ###############################################
 def extract_wine_type(nlu_result):
     for ent in nlu_result.get("entities_pipeline", []):
@@ -221,24 +194,21 @@ def extract_wine_type(nlu_result):
             return ent["word"]
     return None
 
-def extract_food_pairing(nlu_result):
-    for ent in nlu_result.get("entities_pipeline", []):
-        if ent["label"].upper() == "FOOD_PAIRING":
-            return ent["word"].replace("pairs well with", "").replace("well with", "").strip()
-    return None
+_price_re = re.compile(r'\$\s*(\d+(?:\.\d+)?)')
 
 def extract_price_filter(nlu_result):
+    # 1) Check pipeline‐extracted entities
     for ent in nlu_result.get("entities_pipeline", []):
         if ent["label"].upper() == "PRICE_RANGE":
-            match = re.search(r'\d+', ent["word"])
-            if match:
-                return float(match.group())
-    return None
-
-def extract_region(nlu_result):
-    for ent in nlu_result.get("entities_pipeline", []):
-        if ent["label"].upper() == "REGION":
-            return ent["word"]
+            m = _price_re.search(ent["word"])
+            if m:
+                return float(m.group(1))
+    # 2) Fallback to custom entities
+    for ent in nlu_result.get("entities_custom", []):
+        if ent["label"].upper() == "PRICE_RANGE":
+            m = _price_re.search(ent["word"])
+            if m:
+                return float(m.group(1))
     return None
 
 def extract_country(nlu_result):
@@ -247,62 +217,22 @@ def extract_country(nlu_result):
             return ent["word"]
     return None
 
-def search_keyword(query, nlu_result, index_name=ES_INDEX, size=RESULT_LIMIT, price_filter=None):
-    try:
-        es = get_es_client()
-        wine_type = extract_wine_type(nlu_result)
-        food_pairing = extract_food_pairing(nlu_result)
-        region = extract_region(nlu_result)
-        country = extract_country(nlu_result)
-        if not country and "italy" in query.lower():
-            country = "italy"
-        pref_min, pref_max = extract_price_preferences(query)
-        ent_price = extract_price_filter(nlu_result)
-        if ent_price is not None:
-            price_min = None
-            price_max = ent_price
-        else:
-            price_min = pref_min
-            price_max = pref_max
-        multi_fields = ["Wine Name", "Wine Description 1", "Food Pairing"]
-        must_clause = [{"multi_match": {"query": query, "fields": multi_fields}}]
-        if region:
-            must_clause.append({"match": {"Region": {"query": region, "boost": 3}}})
-        if country:
-            must_clause.append({"match": {"Country": {"query": country, "boost": 3}}})
-        field_queries = []
-        if wine_type:
-            field_queries.extend([
-                {"match": {"Primary Type": {"query": wine_type, "boost": 5}}},
-                {"match": {"Grape Type List": {"query": wine_type, "boost": 3}}},
-                {"match": {"Wine Name": {"query": wine_type, "boost": 2}}}
-            ])
-        if food_pairing:
-            field_queries.append({"match": {"Food Pairing": {"query": food_pairing, "boost": 4}}})
-        if field_queries:
-            must_clause.append({"bool": {"should": field_queries, "minimum_should_match": 1}})
-        if price_min is not None or price_max is not None:
-            range_clause = {}
-            if price_min is not None:
-                range_clause["gte"] = price_min
-            if price_max is not None:
-                range_clause["lte"] = price_max
-            must_clause.append({"range": {"Price": range_clause}})
-        body = {"query": {"bool": {"must": must_clause}}, "size": size}
-        res = es.search(index=index_name, body=body)
-        return [hit["_source"] for hit in res["hits"]["hits"]]
-    except Exception as e:
-        logger.error(f"Keyword search failed: {e}")
-        return []
+def search_keyword(query, nlu_result, size=RESULT_LIMIT):
+    """
+    Uses MongoDB Atlas Search to perform keyword retrieval.
+    """
+    return search_keyword_mongodb_atlas(query, size=size)
 
 def combine_and_rank(keyword_results, semantic_results, alpha=0.4):
     try:
         combined = {}
         for res in keyword_results:
+            # Use "Product Link" if available as a unique identifier,
+            # otherwise hash the record.
             product_id = res.get("Product Link", str(hash(json.dumps(res, sort_keys=True))))
             combined[product_id] = {
                 "data": res,
-                "keyword_score": res.get("_score", 0.5),
+                "keyword_score": res.get("score", 0.5),
                 "semantic_score": 0
             }
         for res in semantic_results:
@@ -332,12 +262,18 @@ def combine_and_rank(keyword_results, semantic_results, alpha=0.4):
         logger.error(f"Result combination failed: {e}")
         return keyword_results + semantic_results
 
-def hybrid_search(query, nlu_result, es_index, model, faiss_index, wine_df, k=RESULT_LIMIT, price_filter=None):
+def hybrid_search(query, nlu_result, model, faiss_index, wine_df, k=RESULT_LIMIT):
+    """
+    Hybrid search using:
+      - MongoDB Atlas Search for keyword retrieval.
+      - FAISS for semantic similarity.
+    Designed to work for any user query.
+    """
     try:
         if wine_df.empty:
             logger.warning("Empty wine dataframe provided")
             return []
-        keyword_results = search_keyword(query, nlu_result, index_name=es_index, size=k, price_filter=price_filter)
+        keyword_results = search_keyword(query, nlu_result, size=k)
         semantic_results = search_semantic(query, model, faiss_index, wine_df, k=k)
         if not keyword_results and not semantic_results:
             logger.warning("No results found from either search method")
@@ -347,3 +283,60 @@ def hybrid_search(query, nlu_result, es_index, model, faiss_index, wine_df, k=RE
     except Exception as e:
         logger.error(f"Hybrid search failed: {e}")
         return []
+
+###############################################
+# Custom JSON Serializer
+###############################################
+def default_serializer(obj):
+    # Convert NumPy float32 to native float.
+    if isinstance(obj, np.float32):
+        return float(obj)
+    # Convert NumPy int32 to native int.
+    if isinstance(obj, np.int32):
+        return int(obj)
+    # Convert BSON ObjectId to string.
+    if isinstance(obj, ObjectId):
+        return str(obj)
+    # Try __str__ if available.
+    if hasattr(obj, '__str__'):
+        return str(obj)
+    return None
+
+###############################################
+# Example Test Run
+###############################################
+if __name__ == "__main__":
+    try:
+        # Load wine data
+        wines = load_wines_from_mongo()
+        wine_df = pd.DataFrame(wines)
+        logger.info(f"Loaded {len(wine_df)} wines")
+        
+        # Initialize SentenceTransformer for semantic embeddings.
+        model = SentenceTransformer(EMBEDDING_MODEL_NAME)
+        
+        # Compute embeddings and build FAISS index.
+        embeddings = compute_embeddings(wine_df, model)
+        faiss_index = build_faiss_index(embeddings)
+        
+        # Define a sample query.
+        sample_query = "recommend me a red wine from napa valley which is above 150 dollars"
+        
+        # Import and use the NLU pipeline from ner.py to extract intent and entities.
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        ner_path = os.path.join(current_dir, "..", "nlu")
+        if ner_path not in sys.path:
+            sys.path.append(ner_path)
+        from ner import process_query
+        nlu_result = process_query(sample_query)
+        logger.info("NLU result: " + json.dumps(nlu_result, indent=2, default=default_serializer))
+        
+        # Execute the hybrid search.
+        results = hybrid_search(sample_query, nlu_result, model, faiss_index, wine_df, k=RESULT_LIMIT)
+        
+        # Print out search results using custom JSON serialization.
+        print("Search Results:")
+        print(json.dumps(results, indent=2, default=default_serializer))
+        
+    except Exception as ex:
+        logger.error(f"An error occurred during the test run: {ex}")

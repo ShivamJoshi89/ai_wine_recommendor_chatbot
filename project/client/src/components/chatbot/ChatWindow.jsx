@@ -8,59 +8,64 @@ import RecommendedWineCard from './RecommendedWineCard';
 
 const ChatWindow = ({ quickReply }) => {
   const [messages, setMessages] = useState([
-    { sender: 'assistant', text: 'Hello! How can I help you with your wine selection today?' }
+    { sender: 'assistant', text: "Hello! How can I help you with your wine selection today?" }
   ]);
   const [input, setInput] = useState('');
   const [error, setError] = useState('');
   const messagesEndRef = useRef(null);
 
-  // Scroll to bottom when messages update
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
-  // If a quick reply is provided, populate the input field
   useEffect(() => {
     if (quickReply) {
       setInput(quickReply);
-      // Optionally, you can call handleSend() to auto-submit the message.
-      // For now, we simply update the input.
     }
   }, [quickReply]);
 
-  // Extract wine ID from a link like "http://localhost:3000/wine-details/<id>"
   const extractWineId = (text) => {
-    const regex = /http:\/\/localhost:3000\/wine-details\/([a-fA-F0-9]+)/;
+    const regex = /\/wine-details\/([a-fA-F0-9]+)/;
     const match = text.match(regex);
     return match ? match[1] : null;
   };
 
+  const formatAssistantText = (raw) => {
+    return raw
+      .replace(/\*\*/g, '')
+      // eslint-disable-next-line no-useless-escape
+      .replace(/\$\s*([\d]+)\.\s*([\d]+)/g, '\\$$1.$2')
+      .replace(/^\s*1\./m, '\n1.')
+      .replace(/^\s*2\./m, '\n2.')
+      .replace(/^\s*3\./m, '\n3.')
+      .replace(/^- /gm, '\n  o ')
+      .replace(/\. /g, '.\n')
+      .trim();
+  };
+  
+
   const handleSend = async () => {
     if (!input.trim()) return;
-
     const token = localStorage.getItem('token');
     if (!token) {
       setError('You must be logged in to chat.');
       return;
     }
 
-    const userMessage = { sender: 'user', text: input };
-    setMessages(prev => [...prev, userMessage]);
+    setMessages(prev => [...prev, { sender: 'user', text: input }]);
     setInput('');
 
     try {
       const data = await sendMessage(input, token);
-      const assistantText = data.response || '';
-      console.log("Assistant raw response:", assistantText);
+      const raw = data.response || '';
 
-      const wineId = extractWineId(assistantText);
+      const wineId = extractWineId(raw);
       if (wineId) {
         const wineDetails = await getWineDetail(wineId);
-        const assistantMessage = { sender: 'assistant', wineCard: wineDetails };
-        setMessages(prev => [...prev, assistantMessage]);
+        setMessages(prev => [...prev, { sender: 'assistant', wineCard: wineDetails }]);
       } else {
-        const assistantMessage = { sender: 'assistant', text: assistantText };
-        setMessages(prev => [...prev, assistantMessage]);
+        const formatted = formatAssistantText(raw);
+        setMessages(prev => [...prev, { sender: 'assistant', text: formatted }]);
       }
     } catch (err) {
       console.error('Error sending chat message:', err);
@@ -68,7 +73,6 @@ const ChatWindow = ({ quickReply }) => {
     }
   };
 
-  // Render a message (if it's a wine card, show that card; otherwise, a text bubble)
   const renderMessage = (msg, idx) => {
     if (msg.sender === 'assistant' && msg.wineCard) {
       return (
@@ -99,9 +103,12 @@ const ChatWindow = ({ quickReply }) => {
                 p: 1,
                 borderRadius: 2,
                 maxWidth: '70%',
+                whiteSpace: 'pre-line', // preserve newlines
               }}
             >
-              <Typography variant="body1">{msg.text}</Typography>
+              <Typography variant="body1">
+                {msg.text}
+              </Typography>
             </Box>
           </Box>
         </motion.div>
@@ -110,16 +117,27 @@ const ChatWindow = ({ quickReply }) => {
   };
 
   return (
-    <Paper sx={{ p: 2, height: '70vh', display: 'flex', flexDirection: 'column', backgroundColor: 'transparent', boxShadow: 'none' }}>
+    <Paper
+      sx={{
+        p: 2,
+        height: '70vh',
+        display: 'flex',
+        flexDirection: 'column',
+        backgroundColor: 'transparent',
+        boxShadow: 'none'
+      }}
+    >
       <Box sx={{ flex: 1, overflowY: 'auto', mb: 2 }}>
         {messages.map((msg, idx) => renderMessage(msg, idx))}
         <div ref={messagesEndRef} />
       </Box>
+
       {error && (
         <Typography variant="body2" color="error" sx={{ mb: 1 }}>
           {error}
         </Typography>
       )}
+
       <Box sx={{ display: 'flex' }}>
         <TextField
           fullWidth
@@ -133,7 +151,11 @@ const ChatWindow = ({ quickReply }) => {
             '& .MuiOutlinedInput-root': { color: 'text.primary' },
           }}
         />
-        <Button variant="contained" sx={{ ml: 1, textTransform: 'uppercase' }} onClick={handleSend}>
+        <Button
+          variant="contained"
+          sx={{ ml: 1, textTransform: 'uppercase' }}
+          onClick={handleSend}
+        >
           Send
         </Button>
       </Box>

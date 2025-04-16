@@ -11,16 +11,19 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=["http://localhost:3000", "http://192.168.56.1:3000"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
+
+
 @app.get("/")
 async def read_root():
     return {"message": "Welcome to the Wine Recommendation API!"}
 
+# Include all routers.
 app.include_router(auth.router)
 app.include_router(users.router)
 app.include_router(chat.router)

@@ -8843,5 +8843,6839 @@
                 "label": "PRICE_RANGE"
             }
         ]
+    },
+    {
+        "text": "I'm looking for a affordable sparkling wine from Languedoc that pairs well with cheese.",
+        "entities": [
+            {
+                "start": 18,
+                "end": 28,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 29,
+                "end": 43,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 49,
+                "end": 58,
+                "label": "REGION"
+            },
+            {
+                "start": 80,
+                "end": 86,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Can you suggest a white wine made from Roussanne that pairs well with chocolate?",
+        "entities": [
+            {
+                "start": 18,
+                "end": 28,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 39,
+                "end": 48,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 70,
+                "end": 79,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "What is a good Xinomavro red wine in the $100-$200 range?",
+        "entities": [
+            {
+                "start": 15,
+                "end": 24,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 25,
+                "end": 33,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 41,
+                "end": 50,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "Find me a premium dessert wine from Hunter Valley that goes well with pasta.",
+        "entities": [
+            {
+                "start": 10,
+                "end": 17,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 18,
+                "end": 30,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 36,
+                "end": 48,
+                "label": "REGION"
+            },
+            {
+                "start": 69,
+                "end": 74,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "I'm looking for a mid-range ros wine from Georgia.",
+        "entities": [
+            {
+                "start": 18,
+                "end": 27,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 28,
+                "end": 36,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 42,
+                "end": 49,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "Can you suggest a ros wine made from Garganega that pairs well with poultry?",
+        "entities": [
+            {
+                "start": 18,
+                "end": 26,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 37,
+                "end": 46,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 68,
+                "end": 75,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Looking for a mid-range sparkling wine that pairs well with pasta.",
+        "entities": [
+            {
+                "start": 14,
+                "end": 23,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 24,
+                "end": 38,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 60,
+                "end": 65,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Any recommendations for a orange wine made from Falanghina under $10?",
+        "entities": [
+            {
+                "start": 26,
+                "end": 37,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 48,
+                "end": 58,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 65,
+                "end": 69,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "What is a good Gewurztraminer white wine in the affordable range?",
+        "entities": [
+            {
+                "start": 15,
+                "end": 28,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 29,
+                "end": 39,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 47,
+                "end": 57,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "I need a under $30 wine from Tokaj.",
+        "entities": [
+            {
+                "start": 7,
+                "end": 16,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 26,
+                "end": 30,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "Find me a premium red wine from Santa Barbara that goes well with dessert.",
+        "entities": [
+            {
+                "start": 10,
+                "end": 17,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 18,
+                "end": 26,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 32,
+                "end": 45,
+                "label": "REGION"
+            },
+            {
+                "start": 66,
+                "end": 73,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Any suggestions for an affordable dessert wine from Rheingau?",
+        "entities": [
+            {
+                "start": 25,
+                "end": 35,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 36,
+                "end": 48,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 54,
+                "end": 62,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "Looking for a under $200 sparkling wine from Stellenbosch that pairs well with cheese.",
+        "entities": [
+            {
+                "start": 14,
+                "end": 23,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 24,
+                "end": 38,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 44,
+                "end": 56,
+                "label": "REGION"
+            },
+            {
+                "start": 78,
+                "end": 84,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "What's a good ros wine from Sicily that doesn't exceed mid-range?",
+        "entities": [
+            {
+                "start": 14,
+                "end": 22,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 28,
+                "end": 34,
+                "label": "REGION"
+            },
+            {
+                "start": 55,
+                "end": 64,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "I need a mid-range wine from Etna that goes well with steak.",
+        "entities": [
+            {
+                "start": 9,
+                "end": 18,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 29,
+                "end": 33,
+                "label": "REGION"
+            },
+            {
+                "start": 54,
+                "end": 59,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Can you suggest a sparkling wine made from Vermentino that pairs well with charcuterie?",
+        "entities": [
+            {
+                "start": 18,
+                "end": 32,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 43,
+                "end": 53,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 75,
+                "end": 86,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Find me a premium fortified wine from Douro that goes well with seafood.",
+        "entities": [
+            {
+                "start": 10,
+                "end": 17,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 18,
+                "end": 32,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 38,
+                "end": 43,
+                "label": "REGION"
+            },
+            {
+                "start": 64,
+                "end": 71,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Looking for a $50-$100 dessert wine made from Malbec that pairs well with charcuterie.",
+        "entities": [
+            {
+                "start": 14,
+                "end": 22,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 23,
+                "end": 35,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 46,
+                "end": 52,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 74,
+                "end": 85,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "What is a good Friulano white wine in the under $100 range?",
+        "entities": [
+            {
+                "start": 15,
+                "end": 22,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 23,
+                "end": 33,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 41,
+                "end": 50,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "Can you recommend a red wine from Alsace under under $45?",
+        "entities": [
+            {
+                "start": 20,
+                "end": 28,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 34,
+                "end": 40,
+                "label": "REGION"
+            },
+            {
+                "start": 47,
+                "end": 56,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "I'm looking for a mid-range white wine from Priorat.",
+        "entities": [
+            {
+                "start": 18,
+                "end": 27,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 28,
+                "end": 38,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 44,
+                "end": 50,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "Looking for a affordable dessert wine from Swartland that pairs well with salad.",
+        "entities": [
+            {
+                "start": 14,
+                "end": 24,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 25,
+                "end": 37,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 43,
+                "end": 52,
+                "label": "REGION"
+            },
+            {
+                "start": 73,
+                "end": 78,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Any recommendations for a orange wine made from Carignan under $45?",
+        "entities": [
+            {
+                "start": 26,
+                "end": 37,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 48,
+                "end": 56,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 63,
+                "end": 66,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "What is a good Gruner Veltliner ros wine under $10?",
+        "entities": [
+            {
+                "start": 15,
+                "end": 31,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 32,
+                "end": 40,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 47,
+                "end": 50,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "Find me a premium orange wine from Mosel that goes well with cheese.",
+        "entities": [
+            {
+                "start": 10,
+                "end": 17,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 18,
+                "end": 29,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 35,
+                "end": 40,
+                "label": "REGION"
+            },
+            {
+                "start": 61,
+                "end": 67,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "I need a mid-range wine from Nahe that pairs well with pizza.",
+        "entities": [
+            {
+                "start": 9,
+                "end": 18,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 29,
+                "end": 33,
+                "label": "REGION"
+            },
+            {
+                "start": 54,
+                "end": 59,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Can you suggest a dessert wine made from Nebro Not Found from Bulgaria? (Just an example with partial nonsense)",
+        "entities": [
+            {
+                "start": 18,
+                "end": 30,
+                "label": "WINE_TYPE"
+            }
+        ]
+    },
+    {
+        "text": "Any recommendations for a red wine from Swartland under $200?",
+        "entities": [
+            {
+                "start": 26,
+                "end": 34,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 40,
+                "end": 49,
+                "label": "REGION"
+            },
+            {
+                "start": 56,
+                "end": 60,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "Looking for a premium fortified wine that pairs well with seafood.",
+        "entities": [
+            {
+                "start": 14,
+                "end": 21,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 22,
+                "end": 36,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 58,
+                "end": 65,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Find me a $100-$200 red wine from Washington that goes well with poultry.",
+        "entities": [
+            {
+                "start": 10,
+                "end": 19,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 20,
+                "end": 28,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 34,
+                "end": 44,
+                "label": "REGION"
+            },
+            {
+                "start": 65,
+                "end": 72,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "I'm looking for a mid-range Syrah/Shiraz wine from Navarra.",
+        "entities": [
+            {
+                "start": 18,
+                "end": 27,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 28,
+                "end": 40,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 46,
+                "end": 52,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "Any suggestions for an affordable ros wine that pairs well with chocolate?",
+        "entities": [
+            {
+                "start": 25,
+                "end": 35,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 36,
+                "end": 44,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 66,
+                "end": 75,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "What is a good Merlot orange wine under $200?",
+        "entities": [
+            {
+                "start": 15,
+                "end": 21,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 22,
+                "end": 33,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 40,
+                "end": 44,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "I need a affordable white wine from Friuli that goes well with pasta.",
+        "entities": [
+            {
+                "start": 9,
+                "end": 19,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 20,
+                "end": 30,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 36,
+                "end": 41,
+                "label": "REGION"
+            },
+            {
+                "start": 62,
+                "end": 67,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Find me a premium ros wine from Central Otago.",
+        "entities": [
+            {
+                "start": 10,
+                "end": 17,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 18,
+                "end": 26,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 32,
+                "end": 45,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "What's a good orange wine from Bulgaria that doesn't exceed $50-$100? (example region for test)",
+        "entities": [
+            {
+                "start": 14,
+                "end": 25,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 31,
+                "end": 39,
+                "label": "REGION"
+            },
+            {
+                "start": 60,
+                "end": 69,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "Any recommendations for a mid-range dessert wine made from Feteasca Neagra?",
+        "entities": [
+            {
+                "start": 26,
+                "end": 35,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 36,
+                "end": 48,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 59,
+                "end": 74,
+                "label": "GRAPE_VARIETY"
+            }
+        ]
+    },
+    {
+        "text": "I need a premium white wine from Casablanca Valley that pairs well with seafood.",
+        "entities": [
+            {
+                "start": 9,
+                "end": 16,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 17,
+                "end": 27,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 33,
+                "end": 50,
+                "label": "REGION"
+            },
+            {
+                "start": 72,
+                "end": 79,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Looking for a under $10 wine from Valle de Guadalupe.",
+        "entities": [
+            {
+                "start": 14,
+                "end": 23,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 33,
+                "end": 51,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "Can you suggest a orange wine made from Feteasca Neagra under mid-range?",
+        "entities": [
+            {
+                "start": 18,
+                "end": 29,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 40,
+                "end": 55,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 62,
+                "end": 71,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "What is a good Assyrtiko sparkling wine under under $45?",
+        "entities": [
+            {
+                "start": 15,
+                "end": 23,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 24,
+                "end": 38,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 45,
+                "end": 54,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "I'm looking for a $100-$200 red wine that pairs well with spicy food.",
+        "entities": [
+            {
+                "start": 18,
+                "end": 27,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 28,
+                "end": 36,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 58,
+                "end": 68,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Any recommendations for a mid-range ros wine made from Pinot Gris?",
+        "entities": [
+            {
+                "start": 26,
+                "end": 35,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 36,
+                "end": 44,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 55,
+                "end": 65,
+                "label": "GRAPE_VARIETY"
+            }
+        ]
+    },
+    {
+        "text": "Find me a under $30 fortified wine from Porto that pairs well with chocolate.",
+        "entities": [
+            {
+                "start": 10,
+                "end": 19,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 20,
+                "end": 34,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 40,
+                "end": 45,
+                "label": "REGION"
+            },
+            {
+                "start": 66,
+                "end": 75,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "I'm looking for a under $100 sparkling wine from Bekaa Valley.",
+        "entities": [
+            {
+                "start": 18,
+                "end": 28,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 29,
+                "end": 43,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 49,
+                "end": 60,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "What is a good Vermentino white wine in the $50-$100 range?",
+        "entities": [
+            {
+                "start": 15,
+                "end": 25,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 26,
+                "end": 36,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 44,
+                "end": 53,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "I need a under $200 wine from Sonoma County.",
+        "entities": [
+            {
+                "start": 7,
+                "end": 16,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 26,
+                "end": 39,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "Any suggestions for an affordable dessert wine that pairs well with charcuterie?",
+        "entities": [
+            {
+                "start": 25,
+                "end": 35,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 36,
+                "end": 48,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 70,
+                "end": 81,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Find me a mid-range red wine from Maipo Valley that goes well with spicy food.",
+        "entities": [
+            {
+                "start": 10,
+                "end": 19,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 20,
+                "end": 28,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 34,
+                "end": 45,
+                "label": "REGION"
+            },
+            {
+                "start": 66,
+                "end": 76,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Looking for a premium sparkling wine from Aconcagua Valley that pairs well with steak.",
+        "entities": [
+            {
+                "start": 14,
+                "end": 21,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 22,
+                "end": 36,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 42,
+                "end": 59,
+                "label": "REGION"
+            },
+            {
+                "start": 81,
+                "end": 86,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Can you suggest a ros wine made from Marsanne that pairs well with pasta?",
+        "entities": [
+            {
+                "start": 18,
+                "end": 26,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 37,
+                "end": 45,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 67,
+                "end": 72,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "What is a good under $10 red wine from Slovenia? (testing random region mention)",
+        "entities": [
+            {
+                "start": 15,
+                "end": 24,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 25,
+                "end": 33,
+                "label": "WINE_TYPE"
+            }
+        ]
+    },
+    {
+        "text": "I need a under $45 white wine from Toro that goes well with cheese.",
+        "entities": [
+            {
+                "start": 7,
+                "end": 16,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 17,
+                "end": 27,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 33,
+                "end": 37,
+                "label": "REGION"
+            },
+            {
+                "start": 58,
+                "end": 64,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Any recommendations for a $50-$100 ros wine that pairs well with seafood?",
+        "entities": [
+            {
+                "start": 26,
+                "end": 34,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 35,
+                "end": 43,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 65,
+                "end": 72,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Looking for a mid-range Moscato wine that pairs well with chocolate.",
+        "entities": [
+            {
+                "start": 14,
+                "end": 23,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 24,
+                "end": 31,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 53,
+                "end": 62,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Find me a premium ros wine from Colchagua Valley that goes well with poultry.",
+        "entities": [
+            {
+                "start": 10,
+                "end": 17,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 18,
+                "end": 26,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 32,
+                "end": 48,
+                "label": "REGION"
+            },
+            {
+                "start": 69,
+                "end": 76,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "What is a good Pinot Meunier sparkling wine in the under $10 range?",
+        "entities": [
+            {
+                "start": 15,
+                "end": 27,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 28,
+                "end": 42,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 50,
+                "end": 59,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "Looking for a affordable fortified wine from Porto that pairs well with charcuterie.",
+        "entities": [
+            {
+                "start": 14,
+                "end": 24,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 25,
+                "end": 39,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 45,
+                "end": 50,
+                "label": "REGION"
+            },
+            {
+                "start": 72,
+                "end": 83,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Can you recommend a mid-range white wine that pairs well with pizza?",
+        "entities": [
+            {
+                "start": 20,
+                "end": 29,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 30,
+                "end": 40,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 62,
+                "end": 67,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Find me a $100-$200 sparkling wine from Loire Valley that goes well with dessert.",
+        "entities": [
+            {
+                "start": 10,
+                "end": 19,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 20,
+                "end": 34,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 40,
+                "end": 51,
+                "label": "REGION"
+            },
+            {
+                "start": 72,
+                "end": 79,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "I'm looking for a under $45 red wine from Toro that pairs well with poultry.",
+        "entities": [
+            {
+                "start": 18,
+                "end": 27,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 28,
+                "end": 36,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 42,
+                "end": 46,
+                "label": "REGION"
+            },
+            {
+                "start": 67,
+                "end": 74,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Any recommendations for an affordable ros wine made from Garganega?",
+        "entities": [
+            {
+                "start": 25,
+                "end": 35,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 36,
+                "end": 44,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 55,
+                "end": 64,
+                "label": "GRAPE_VARIETY"
+            }
+        ]
+    },
+    {
+        "text": "I need a mid-range dessert wine from Maipo Valley that pairs well with poultry.",
+        "entities": [
+            {
+                "start": 9,
+                "end": 18,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 19,
+                "end": 31,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 37,
+                "end": 48,
+                "label": "REGION"
+            },
+            {
+                "start": 69,
+                "end": 76,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "What's a good Moscato ros wine under $100?",
+        "entities": [
+            {
+                "start": 14,
+                "end": 20,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 21,
+                "end": 29,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 36,
+                "end": 40,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "Looking for an affordable red wine from Colchagua Valley.",
+        "entities": [
+            {
+                "start": 15,
+                "end": 25,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 26,
+                "end": 34,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 40,
+                "end": 56,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "Can you suggest a $50-$100 dessert wine made from Lambrusco that pairs well with charcuterie?",
+        "entities": [
+            {
+                "start": 18,
+                "end": 26,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 27,
+                "end": 39,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 50,
+                "end": 59,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 81,
+                "end": 92,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Find me a mid-range ros wine from Washington that goes well with seafood.",
+        "entities": [
+            {
+                "start": 10,
+                "end": 19,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 20,
+                "end": 28,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 34,
+                "end": 44,
+                "label": "REGION"
+            },
+            {
+                "start": 65,
+                "end": 72,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "I need a premium orange wine from Rueda.",
+        "entities": [
+            {
+                "start": 9,
+                "end": 16,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 17,
+                "end": 28,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 34,
+                "end": 39,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "Looking for an affordable Syrah/Shiraz wine that pairs well with dessert.",
+        "entities": [
+            {
+                "start": 15,
+                "end": 25,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 26,
+                "end": 38,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 60,
+                "end": 67,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "What is a good Glera sparkling wine in the under $10 range?",
+        "entities": [
+            {
+                "start": 15,
+                "end": 20,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 21,
+                "end": 35,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 43,
+                "end": 52,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "Find me a premium ros wine from Hunter Valley that goes well with salad.",
+        "entities": [
+            {
+                "start": 10,
+                "end": 17,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 18,
+                "end": 26,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 32,
+                "end": 44,
+                "label": "REGION"
+            },
+            {
+                "start": 65,
+                "end": 70,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Can you recommend a under $10 dessert wine from Napa Valley?",
+        "entities": [
+            {
+                "start": 20,
+                "end": 29,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 30,
+                "end": 42,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 48,
+                "end": 59,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "I'm looking for a mid-range ros wine made from Pinot Grigio.",
+        "entities": [
+            {
+                "start": 18,
+                "end": 27,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 28,
+                "end": 36,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 47,
+                "end": 58,
+                "label": "GRAPE_VARIETY"
+            }
+        ]
+    },
+    {
+        "text": "Any suggestions for an affordable red wine from Priorat?",
+        "entities": [
+            {
+                "start": 25,
+                "end": 35,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 36,
+                "end": 44,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 50,
+                "end": 56,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "Find me a $50-$100 orange wine from Loire Valley that pairs well with poultry.",
+        "entities": [
+            {
+                "start": 10,
+                "end": 18,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 19,
+                "end": 30,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 36,
+                "end": 47,
+                "label": "REGION"
+            },
+            {
+                "start": 68,
+                "end": 75,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "What is a good Garganega fortified wine under under $45?",
+        "entities": [
+            {
+                "start": 15,
+                "end": 24,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 25,
+                "end": 39,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 46,
+                "end": 55,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "I'm looking for a affordable ros wine from Valle de Guadalupe.",
+        "entities": [
+            {
+                "start": 18,
+                "end": 28,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 29,
+                "end": 37,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 43,
+                "end": 61,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "Looking for a mid-range dessert wine that pairs well with cheese.",
+        "entities": [
+            {
+                "start": 14,
+                "end": 23,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 24,
+                "end": 36,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 58,
+                "end": 64,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Can you suggest a white wine made from Garganega that pairs well with spicy food?",
+        "entities": [
+            {
+                "start": 18,
+                "end": 28,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 39,
+                "end": 48,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 70,
+                "end": 80,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Find me a premium sparkling wine from Champagne that goes well with dessert.",
+        "entities": [
+            {
+                "start": 10,
+                "end": 17,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 18,
+                "end": 32,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 38,
+                "end": 47,
+                "label": "REGION"
+            },
+            {
+                "start": 68,
+                "end": 75,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "I need a under $10 red wine from Piedmont that goes well with pasta.",
+        "entities": [
+            {
+                "start": 7,
+                "end": 16,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 17,
+                "end": 25,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 31,
+                "end": 39,
+                "label": "REGION"
+            },
+            {
+                "start": 60,
+                "end": 65,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "What's a good Biancolella ros wine in the under $45 range?",
+        "entities": [
+            {
+                "start": 14,
+                "end": 25,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 26,
+                "end": 34,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 42,
+                "end": 51,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "Can you recommend a mid-range dessert wine from Mosel that pairs well with seafood?",
+        "entities": [
+            {
+                "start": 20,
+                "end": 29,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 30,
+                "end": 42,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 48,
+                "end": 53,
+                "label": "REGION"
+            },
+            {
+                "start": 75,
+                "end": 82,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Looking for a $50-$100 white wine that pairs well with dessert.",
+        "entities": [
+            {
+                "start": 14,
+                "end": 22,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 23,
+                "end": 33,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 55,
+                "end": 62,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "I'm looking for a premium sparkling wine from Maipo Valley.",
+        "entities": [
+            {
+                "start": 18,
+                "end": 25,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 26,
+                "end": 40,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 46,
+                "end": 57,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "Any suggestions for a under $10 fortified wine made from Biancolella?",
+        "entities": [
+            {
+                "start": 25,
+                "end": 34,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 35,
+                "end": 49,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 60,
+                "end": 71,
+                "label": "GRAPE_VARIETY"
+            }
+        ]
+    },
+    {
+        "text": "What is a good Malbec dessert wine in the $100-$200 range?",
+        "entities": [
+            {
+                "start": 15,
+                "end": 21,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 22,
+                "end": 34,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 42,
+                "end": 51,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "Can you suggest a orange wine from Colchagua Valley under $30?",
+        "entities": [
+            {
+                "start": 18,
+                "end": 29,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 35,
+                "end": 51,
+                "label": "REGION"
+            },
+            {
+                "start": 58,
+                "end": 61,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "Find me a under $45 sparkling wine that pairs well with cheese.",
+        "entities": [
+            {
+                "start": 10,
+                "end": 19,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 20,
+                "end": 34,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 56,
+                "end": 62,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Any recommendations for a premium fortified wine made from Carignan?",
+        "entities": [
+            {
+                "start": 26,
+                "end": 33,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 34,
+                "end": 48,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 59,
+                "end": 67,
+                "label": "GRAPE_VARIETY"
+            }
+        ]
+    },
+    {
+        "text": "I'm looking for an affordable dessert wine made from Garganega that pairs well with salad.",
+        "entities": [
+            {
+                "start": 20,
+                "end": 30,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 31,
+                "end": 43,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 54,
+                "end": 63,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 85,
+                "end": 90,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "What is a good under $30 red wine from New Zealand? (Checking random region mention)",
+        "entities": [
+            {
+                "start": 15,
+                "end": 24,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 25,
+                "end": 33,
+                "label": "WINE_TYPE"
+            }
+        ]
+    },
+    {
+        "text": "Looking for a $100-$200 ros wine from Nahe that pairs well with cheese.",
+        "entities": [
+            {
+                "start": 14,
+                "end": 23,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 24,
+                "end": 32,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 38,
+                "end": 42,
+                "label": "REGION"
+            },
+            {
+                "start": 63,
+                "end": 69,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Can you suggest a mid-range dessert wine from Colchagua Valley that pairs well with chocolate?",
+        "entities": [
+            {
+                "start": 18,
+                "end": 27,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 28,
+                "end": 40,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 46,
+                "end": 62,
+                "label": "REGION"
+            },
+            {
+                "start": 84,
+                "end": 93,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "I need a under $10 ros wine made from Moscato that pairs well with poultry.",
+        "entities": [
+            {
+                "start": 7,
+                "end": 16,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 17,
+                "end": 25,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 36,
+                "end": 43,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 65,
+                "end": 72,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Find me a premium orange wine from Friuli that pairs well with charcuterie.",
+        "entities": [
+            {
+                "start": 10,
+                "end": 17,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 18,
+                "end": 29,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 35,
+                "end": 40,
+                "label": "REGION"
+            },
+            {
+                "start": 62,
+                "end": 73,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Any suggestions for a $50-$100 red wine made from Xinomavro?",
+        "entities": [
+            {
+                "start": 25,
+                "end": 33,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 34,
+                "end": 42,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 53,
+                "end": 62,
+                "label": "GRAPE_VARIETY"
+            }
+        ]
+    },
+    {
+        "text": "I'm looking for an affordable orange wine from Colchagua Valley that pairs well with seafood.",
+        "entities": [
+            {
+                "start": 20,
+                "end": 30,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 31,
+                "end": 42,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 48,
+                "end": 64,
+                "label": "REGION"
+            },
+            {
+                "start": 86,
+                "end": 93,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "What is a good Syrah/Shiraz dessert wine under $100?",
+        "entities": [
+            {
+                "start": 15,
+                "end": 27,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 28,
+                "end": 40,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 47,
+                "end": 51,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "Looking for a mid-range fortified wine from Porto that pairs well with dessert.",
+        "entities": [
+            {
+                "start": 14,
+                "end": 23,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 24,
+                "end": 38,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 44,
+                "end": 49,
+                "label": "REGION"
+            },
+            {
+                "start": 71,
+                "end": 78,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Can you suggest a under $45 sparkling wine made from Biancolella?",
+        "entities": [
+            {
+                "start": 18,
+                "end": 27,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 28,
+                "end": 42,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 53,
+                "end": 64,
+                "label": "GRAPE_VARIETY"
+            }
+        ]
+    },
+    {
+        "text": "I'm looking for a premium wine from Curico Valley.",
+        "entities": [
+            {
+                "start": 18,
+                "end": 25,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 36,
+                "end": 48,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "What's a good Viura white wine in the $50-$100 range?",
+        "entities": [
+            {
+                "start": 14,
+                "end": 18,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 19,
+                "end": 29,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 37,
+                "end": 46,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "Any recommendations for a under $100 fortified wine that pairs well with spicy food?",
+        "entities": [
+            {
+                "start": 26,
+                "end": 36,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 37,
+                "end": 51,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 73,
+                "end": 83,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Find me a mid-range orange wine from Nahe that goes well with pasta.",
+        "entities": [
+            {
+                "start": 10,
+                "end": 19,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 20,
+                "end": 31,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 37,
+                "end": 41,
+                "label": "REGION"
+            },
+            {
+                "start": 62,
+                "end": 67,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Can you recommend a under $45 white wine that pairs well with seafood?",
+        "entities": [
+            {
+                "start": 20,
+                "end": 29,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 30,
+                "end": 40,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 62,
+                "end": 69,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Looking for an affordable red wine from Barbera NotARegion. (Testing partial nonsense data)",
+        "entities": [
+            {
+                "start": 15,
+                "end": 25,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 26,
+                "end": 34,
+                "label": "WINE_TYPE"
+            }
+        ]
+    },
+    {
+        "text": "What's a good Syrah/Shiraz ros wine in the under $10 range?",
+        "entities": [
+            {
+                "start": 14,
+                "end": 26,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 27,
+                "end": 35,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 43,
+                "end": 52,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "I need a affordable dessert wine from Nelson that goes well with cheese.",
+        "entities": [
+            {
+                "start": 9,
+                "end": 19,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 20,
+                "end": 32,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 38,
+                "end": 44,
+                "label": "REGION"
+            },
+            {
+                "start": 65,
+                "end": 71,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Find me a $50-$100 ros wine that pairs well with poultry.",
+        "entities": [
+            {
+                "start": 10,
+                "end": 18,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 19,
+                "end": 27,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 49,
+                "end": 56,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Any recommendations for a mid-range red wine made from Pinot Noir under $10?",
+        "entities": [
+            {
+                "start": 26,
+                "end": 35,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 36,
+                "end": 44,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 55,
+                "end": 65,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 72,
+                "end": 75,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "I'm looking for a premium sparkling wine from Sonoma County that pairs well with chocolate.",
+        "entities": [
+            {
+                "start": 18,
+                "end": 25,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 26,
+                "end": 40,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 46,
+                "end": 59,
+                "label": "REGION"
+            },
+            {
+                "start": 81,
+                "end": 90,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Can you suggest a dessert wine made from Roussanne under $30?",
+        "entities": [
+            {
+                "start": 18,
+                "end": 30,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 41,
+                "end": 50,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 57,
+                "end": 60,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "Looking for an affordable fortified wine from Napa Valley that pairs well with salad.",
+        "entities": [
+            {
+                "start": 15,
+                "end": 25,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 26,
+                "end": 40,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 46,
+                "end": 57,
+                "label": "REGION"
+            },
+            {
+                "start": 79,
+                "end": 84,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "I need a mid-range white wine from Central Otago that pairs well with seafood.",
+        "entities": [
+            {
+                "start": 9,
+                "end": 18,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 19,
+                "end": 29,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 35,
+                "end": 48,
+                "label": "REGION"
+            },
+            {
+                "start": 70,
+                "end": 77,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "What is a good Negroamaro red wine in the affordable range?",
+        "entities": [
+            {
+                "start": 15,
+                "end": 25,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 26,
+                "end": 34,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 42,
+                "end": 52,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "Find me a under $10 dessert wine from Chianti that goes well with spicy food.",
+        "entities": [
+            {
+                "start": 10,
+                "end": 19,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 20,
+                "end": 32,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 38,
+                "end": 45,
+                "label": "REGION"
+            },
+            {
+                "start": 66,
+                "end": 76,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Looking for a $50-$100 sparkling wine made from Xinomavro?",
+        "entities": [
+            {
+                "start": 14,
+                "end": 22,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 23,
+                "end": 37,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 48,
+                "end": 57,
+                "label": "GRAPE_VARIETY"
+            }
+        ]
+    },
+    {
+        "text": "I'm looking for a premium red wine from Toro that pairs well with cheese.",
+        "entities": [
+            {
+                "start": 18,
+                "end": 25,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 26,
+                "end": 34,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 40,
+                "end": 44,
+                "label": "REGION"
+            },
+            {
+                "start": 65,
+                "end": 71,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "What is a good Verdejo white wine under $30?",
+        "entities": [
+            {
+                "start": 15,
+                "end": 22,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 23,
+                "end": 33,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 40,
+                "end": 43,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "Can you suggest a mid-range red wine from Mendocino Ridge that pairs well with cheese?",
+        "entities": [
+            {
+                "start": 18,
+                "end": 27,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 28,
+                "end": 36,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 42,
+                "end": 57,
+                "label": "REGION"
+            },
+            {
+                "start": 79,
+                "end": 85,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Any recommendations for a $50-$100 ros wine made from Vermentino that pairs well with spicy food?",
+        "entities": [
+            {
+                "start": 26,
+                "end": 34,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 35,
+                "end": 43,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 54,
+                "end": 64,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 86,
+                "end": 96,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "I need a affordable wine from Barossa Valley.",
+        "entities": [
+            {
+                "start": 9,
+                "end": 19,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 30,
+                "end": 44,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "Looking for a under $45 dessert wine made from Garganega that pairs well with cheese.",
+        "entities": [
+            {
+                "start": 14,
+                "end": 23,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 24,
+                "end": 36,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 47,
+                "end": 56,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 78,
+                "end": 84,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Find me a $100-$200 sparkling wine from Champagne that goes well with poultry.",
+        "entities": [
+            {
+                "start": 10,
+                "end": 19,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 20,
+                "end": 34,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 40,
+                "end": 49,
+                "label": "REGION"
+            },
+            {
+                "start": 70,
+                "end": 77,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "What is a good Pinot Noir dessert wine in the under $10 range?",
+        "entities": [
+            {
+                "start": 15,
+                "end": 25,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 26,
+                "end": 38,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 46,
+                "end": 55,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "Any suggestions for a under $30 fortified wine from Porto that pairs well with salad?",
+        "entities": [
+            {
+                "start": 25,
+                "end": 34,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 35,
+                "end": 49,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 55,
+                "end": 60,
+                "label": "REGION"
+            },
+            {
+                "start": 82,
+                "end": 87,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "I'm looking for an affordable white wine from Maipo Valley that pairs well with chocolate.",
+        "entities": [
+            {
+                "start": 20,
+                "end": 30,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 31,
+                "end": 41,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 47,
+                "end": 58,
+                "label": "REGION"
+            },
+            {
+                "start": 80,
+                "end": 89,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "I need a mid-range dessert wine from Paso Robles.",
+        "entities": [
+            {
+                "start": 9,
+                "end": 18,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 19,
+                "end": 31,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 37,
+                "end": 48,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "What's a good Feteasca Neagra red wine under $10?",
+        "entities": [
+            {
+                "start": 14,
+                "end": 29,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 30,
+                "end": 38,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 45,
+                "end": 48,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "Any recommendations for a $100-$200 dessert wine made from Garganega?",
+        "entities": [
+            {
+                "start": 26,
+                "end": 35,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 36,
+                "end": 48,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 59,
+                "end": 68,
+                "label": "GRAPE_VARIETY"
+            }
+        ]
+    },
+    {
+        "text": "Find me a premium ros wine from Maipo Valley that goes well with steak.",
+        "entities": [
+            {
+                "start": 10,
+                "end": 17,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 18,
+                "end": 26,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 32,
+                "end": 43,
+                "label": "REGION"
+            },
+            {
+                "start": 64,
+                "end": 69,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Can you recommend a orange wine made from Barbera under $100-$200?",
+        "entities": [
+            {
+                "start": 20,
+                "end": 31,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 42,
+                "end": 49,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 56,
+                "end": 65,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "What wine pairs well with charcuterie?",
+        "entities": [
+            {
+                "start": 26,
+                "end": 37,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Find me a mid-range red wine from Casablanca Valley that goes well with spicy food.",
+        "entities": [
+            {
+                "start": 10,
+                "end": 19,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 20,
+                "end": 28,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 34,
+                "end": 51,
+                "label": "REGION"
+            },
+            {
+                "start": 72,
+                "end": 82,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "I'm looking for an affordable orange wine from Curico Valley.",
+        "entities": [
+            {
+                "start": 20,
+                "end": 30,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 31,
+                "end": 42,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 48,
+                "end": 60,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "Any recommendations for a $100-$200 dessert wine that pairs well with cheese?",
+        "entities": [
+            {
+                "start": 26,
+                "end": 35,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 36,
+                "end": 48,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 70,
+                "end": 76,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "I need a premium white wine from Willamette Valley that pairs well with poultry.",
+        "entities": [
+            {
+                "start": 9,
+                "end": 16,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 17,
+                "end": 27,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 33,
+                "end": 49,
+                "label": "REGION"
+            },
+            {
+                "start": 71,
+                "end": 78,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "What is a good Garganega red wine in the under $30 range?",
+        "entities": [
+            {
+                "start": 15,
+                "end": 24,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 25,
+                "end": 33,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 41,
+                "end": 50,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "Looking for a premium orange wine from Paso Robles that goes well with dessert.",
+        "entities": [
+            {
+                "start": 14,
+                "end": 21,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 22,
+                "end": 33,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 39,
+                "end": 50,
+                "label": "REGION"
+            },
+            {
+                "start": 71,
+                "end": 78,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Looking for a under $10 white wine that pairs well with pasta.",
+        "entities": [
+            {
+                "start": 14,
+                "end": 23,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 24,
+                "end": 34,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 56,
+                "end": 61,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Any recommendations for a affordable dessert wine made from Feteasca Neagra?",
+        "entities": [
+            {
+                "start": 26,
+                "end": 36,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 37,
+                "end": 49,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 60,
+                "end": 75,
+                "label": "GRAPE_VARIETY"
+            }
+        ]
+    },
+    {
+        "text": "I'm looking for a affordable dessert wine from Georgia that goes well with steak.",
+        "entities": [
+            {
+                "start": 18,
+                "end": 28,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 29,
+                "end": 41,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 47,
+                "end": 54,
+                "label": "REGION"
+            },
+            {
+                "start": 75,
+                "end": 80,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "What is a good Carignan white wine in the premium range?",
+        "entities": [
+            {
+                "start": 15,
+                "end": 23,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 24,
+                "end": 34,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 42,
+                "end": 49,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "Any recommendations for a red wine made from Xinomavro premium?",
+        "entities": [
+            {
+                "start": 26,
+                "end": 34,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 45,
+                "end": 54,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 55,
+                "end": 62,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "Find me a premium dessert wine from Mosel that goes well with pizza.",
+        "entities": [
+            {
+                "start": 10,
+                "end": 17,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 18,
+                "end": 30,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 36,
+                "end": 41,
+                "label": "REGION"
+            },
+            {
+                "start": 62,
+                "end": 67,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "What's a good Chardonnay sparkling wine in the mid-range range?",
+        "entities": [
+            {
+                "start": 14,
+                "end": 24,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 25,
+                "end": 39,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 47,
+                "end": 56,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "Can you suggest a orange wine made from Pinot Meunier that pairs well with steak?",
+        "entities": [
+            {
+                "start": 18,
+                "end": 29,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 40,
+                "end": 52,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 74,
+                "end": 79,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "I need a mid-range wine from Santa Barbara.",
+        "entities": [
+            {
+                "start": 9,
+                "end": 18,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 29,
+                "end": 42,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "Looking for a under $45 red wine made from Carignan?",
+        "entities": [
+            {
+                "start": 14,
+                "end": 23,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 24,
+                "end": 32,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 43,
+                "end": 51,
+                "label": "GRAPE_VARIETY"
+            }
+        ]
+    },
+    {
+        "text": "What is a good Syrah/Shiraz red wine in the premium range?",
+        "entities": [
+            {
+                "start": 15,
+                "end": 27,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 28,
+                "end": 36,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 44,
+                "end": 51,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "I need a under $30 wine from Alsace.",
+        "entities": [
+            {
+                "start": 9,
+                "end": 18,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 28,
+                "end": 34,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "Find me a premium sparkling wine from Tokaj that goes well with poultry.",
+        "entities": [
+            {
+                "start": 10,
+                "end": 17,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 18,
+                "end": 32,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 38,
+                "end": 43,
+                "label": "REGION"
+            },
+            {
+                "start": 64,
+                "end": 71,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Any suggestions for a affordable red wine made from Friulano?",
+        "entities": [
+            {
+                "start": 25,
+                "end": 35,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 36,
+                "end": 44,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 55,
+                "end": 63,
+                "label": "GRAPE_VARIETY"
+            }
+        ]
+    },
+    {
+        "text": "Looking for a $100-$200 dessert wine that pairs well with pasta.",
+        "entities": [
+            {
+                "start": 14,
+                "end": 23,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 24,
+                "end": 36,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 58,
+                "end": 63,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Can you suggest a sparkling wine made from Falanghina that pairs well with chocolate?",
+        "entities": [
+            {
+                "start": 18,
+                "end": 32,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 43,
+                "end": 53,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 75,
+                "end": 84,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "What is a good Albarino white wine in the under $30 range?",
+        "entities": [
+            {
+                "start": 15,
+                "end": 23,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 24,
+                "end": 34,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 42,
+                "end": 51,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "I need a mid-range dessert wine from Priorat that goes well with poultry.",
+        "entities": [
+            {
+                "start": 9,
+                "end": 18,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 19,
+                "end": 31,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 37,
+                "end": 44,
+                "label": "REGION"
+            },
+            {
+                "start": 65,
+                "end": 72,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Any recommendations for a red wine made from Viura under $100?",
+        "entities": [
+            {
+                "start": 26,
+                "end": 34,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 45,
+                "end": 49,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 56,
+                "end": 61,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "Find me a under $45 orange wine from Oregon.",
+        "entities": [
+            {
+                "start": 10,
+                "end": 19,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 20,
+                "end": 31,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 37,
+                "end": 43,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "Looking for a mid-range fortified wine that pairs well with spicy food.",
+        "entities": [
+            {
+                "start": 14,
+                "end": 23,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 24,
+                "end": 38,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 60,
+                "end": 70,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Any recommendations for a premium orange wine that pairs well with pizza?",
+        "entities": [
+            {
+                "start": 26,
+                "end": 33,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 34,
+                "end": 45,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 67,
+                "end": 72,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "What's a good Syrah/Shiraz sparkling wine in the $50-$100 range?",
+        "entities": [
+            {
+                "start": 14,
+                "end": 26,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 27,
+                "end": 41,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 49,
+                "end": 58,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "I'm looking for a premium white wine from Mendoza.",
+        "entities": [
+            {
+                "start": 18,
+                "end": 25,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 26,
+                "end": 36,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 42,
+                "end": 49,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "I need a under $200 wine from Burgundy.",
+        "entities": [
+            {
+                "start": 7,
+                "end": 16,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 26,
+                "end": 34,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "Can you suggest a dessert wine made from Vermentino that pairs well with cheese?",
+        "entities": [
+            {
+                "start": 18,
+                "end": 30,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 41,
+                "end": 51,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 73,
+                "end": 79,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Looking for a $50-$100 red wine that pairs well with cheese.",
+        "entities": [
+            {
+                "start": 14,
+                "end": 22,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 23,
+                "end": 31,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 53,
+                "end": 59,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "I need a affordable ros wine from Ribe Not Real Region. (testing partial nonsense)",
+        "entities": [
+            {
+                "start": 9,
+                "end": 19,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 20,
+                "end": 28,
+                "label": "WINE_TYPE"
+            }
+        ]
+    },
+    {
+        "text": "What's a good Moscato white wine under $30?",
+        "entities": [
+            {
+                "start": 14,
+                "end": 20,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 21,
+                "end": 31,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 38,
+                "end": 41,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "Find me a $50-$100 white wine that pairs well with pasta.",
+        "entities": [
+            {
+                "start": 10,
+                "end": 18,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 19,
+                "end": 29,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 51,
+                "end": 56,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "I need a mid-range red wine from Curico Valley.",
+        "entities": [
+            {
+                "start": 9,
+                "end": 18,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 19,
+                "end": 27,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 33,
+                "end": 46,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "Can you suggest a under $200 sparkling wine that pairs well with spicy food?",
+        "entities": [
+            {
+                "start": 18,
+                "end": 27,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 28,
+                "end": 42,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 64,
+                "end": 74,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Any recommendations for a affordable dessert wine that pairs well with dessert?",
+        "entities": [
+            {
+                "start": 25,
+                "end": 35,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 36,
+                "end": 48,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 70,
+                "end": 77,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "I'm looking for a mid-range white wine from Swartland that goes well with cheese.",
+        "entities": [
+            {
+                "start": 18,
+                "end": 27,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 28,
+                "end": 38,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 44,
+                "end": 53,
+                "label": "REGION"
+            },
+            {
+                "start": 74,
+                "end": 80,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Find me a premium dessert wine from Oregon that pairs well with spicy food.",
+        "entities": [
+            {
+                "start": 10,
+                "end": 17,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 18,
+                "end": 30,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 36,
+                "end": 42,
+                "label": "REGION"
+            },
+            {
+                "start": 63,
+                "end": 73,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "What is a good Malbec red wine in the affordable range?",
+        "entities": [
+            {
+                "start": 15,
+                "end": 21,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 22,
+                "end": 30,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 38,
+                "end": 48,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "Any recommendations for a affordable ros wine made from Vermentino?",
+        "entities": [
+            {
+                "start": 25,
+                "end": 35,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 36,
+                "end": 44,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 55,
+                "end": 65,
+                "label": "GRAPE_VARIETY"
+            }
+        ]
+    },
+    {
+        "text": "Find me a $50-$100 red wine from Navarra that pairs well with pizza.",
+        "entities": [
+            {
+                "start": 10,
+                "end": 18,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 19,
+                "end": 27,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 33,
+                "end": 40,
+                "label": "REGION"
+            },
+            {
+                "start": 61,
+                "end": 66,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "I need a affordable wine from Languedoc.",
+        "entities": [
+            {
+                "start": 9,
+                "end": 19,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 30,
+                "end": 39,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "What's a good Barbera white wine under $45?",
+        "entities": [
+            {
+                "start": 14,
+                "end": 21,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 22,
+                "end": 32,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 39,
+                "end": 42,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "Looking for a mid-range ros wine made from Malbec?",
+        "entities": [
+            {
+                "start": 14,
+                "end": 23,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 24,
+                "end": 32,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 43,
+                "end": 49,
+                "label": "GRAPE_VARIETY"
+            }
+        ]
+    },
+    {
+        "text": "Any recommendations for a premium sparkling wine from Jura that goes well with salad.",
+        "entities": [
+            {
+                "start": 25,
+                "end": 32,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 33,
+                "end": 47,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 53,
+                "end": 57,
+                "label": "REGION"
+            },
+            {
+                "start": 78,
+                "end": 83,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "I'm looking for a under $30 fortified wine that pairs well with poultry.",
+        "entities": [
+            {
+                "start": 18,
+                "end": 27,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 28,
+                "end": 42,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 64,
+                "end": 71,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Can you suggest a under $10 ros wine made from Feteasca Neagra?",
+        "entities": [
+            {
+                "start": 18,
+                "end": 27,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 28,
+                "end": 36,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 47,
+                "end": 62,
+                "label": "GRAPE_VARIETY"
+            }
+        ]
+    },
+    {
+        "text": "What is a good Pinot Grigio sparkling wine in the under $100 range?",
+        "entities": [
+            {
+                "start": 15,
+                "end": 27,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 28,
+                "end": 42,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 50,
+                "end": 59,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "I need a affordable white wine from Loire Valley that goes well with cheese.",
+        "entities": [
+            {
+                "start": 9,
+                "end": 19,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 20,
+                "end": 30,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 36,
+                "end": 48,
+                "label": "REGION"
+            },
+            {
+                "start": 69,
+                "end": 75,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Looking for a $50-$100 ros wine made from Albarino?",
+        "entities": [
+            {
+                "start": 14,
+                "end": 22,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 23,
+                "end": 31,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 42,
+                "end": 50,
+                "label": "GRAPE_VARIETY"
+            }
+        ]
+    },
+    {
+        "text": "I'm looking for a affordable sparkling wine from Piedmont.",
+        "entities": [
+            {
+                "start": 18,
+                "end": 28,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 29,
+                "end": 43,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 49,
+                "end": 57,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "Find me a premium ros wine from Piedmont.",
+        "entities": [
+            {
+                "start": 10,
+                "end": 17,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 18,
+                "end": 26,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 32,
+                "end": 40,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "What is a good Verdelho dessert wine under $30?",
+        "entities": [
+            {
+                "start": 15,
+                "end": 23,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 24,
+                "end": 36,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 43,
+                "end": 46,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "Any recommendations for a mid-range sparkling wine that pairs well with chocolate?",
+        "entities": [
+            {
+                "start": 26,
+                "end": 35,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 36,
+                "end": 50,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 72,
+                "end": 81,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "I'm looking for a affordable red wine from Swartland that pairs well with steak.",
+        "entities": [
+            {
+                "start": 18,
+                "end": 28,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 29,
+                "end": 37,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 43,
+                "end": 52,
+                "label": "REGION"
+            },
+            {
+                "start": 73,
+                "end": 78,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "I need a $100-$200 wine from Languedoc.",
+        "entities": [
+            {
+                "start": 7,
+                "end": 16,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 26,
+                "end": 35,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "Looking for a premium red wine from Orego Not Real Region. (nonsense region test)",
+        "entities": [
+            {
+                "start": 14,
+                "end": 21,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 22,
+                "end": 30,
+                "label": "WINE_TYPE"
+            }
+        ]
+    },
+    {
+        "text": "Can you suggest a ros wine made from Vermentino under $45?",
+        "entities": [
+            {
+                "start": 18,
+                "end": 26,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 37,
+                "end": 47,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 54,
+                "end": 57,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "Any recommendations for a red wine made from Falanghina under $200?",
+        "entities": [
+            {
+                "start": 26,
+                "end": 34,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 45,
+                "end": 55,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 62,
+                "end": 67,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "Find me a premium ros wine from Champagne.",
+        "entities": [
+            {
+                "start": 10,
+                "end": 17,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 18,
+                "end": 26,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 32,
+                "end": 41,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "I need a under $10 wine from Barossa Valley.",
+        "entities": [
+            {
+                "start": 7,
+                "end": 16,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 26,
+                "end": 39,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "Can you suggest a mid-range sparkling wine made from Roussanne?",
+        "entities": [
+            {
+                "start": 18,
+                "end": 27,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 28,
+                "end": 42,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 53,
+                "end": 62,
+                "label": "GRAPE_VARIETY"
+            }
+        ]
+    },
+    {
+        "text": "What is a good Albarino orange wine in the $100-$200 range?",
+        "entities": [
+            {
+                "start": 15,
+                "end": 23,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 24,
+                "end": 35,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 43,
+                "end": 52,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "Any suggestions for a mid-range dessert wine that pairs well with spicy food?",
+        "entities": [
+            {
+                "start": 26,
+                "end": 35,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 36,
+                "end": 48,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 70,
+                "end": 80,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Find me a under $30 dessert wine from Curico Valley that goes well with dessert.",
+        "entities": [
+            {
+                "start": 10,
+                "end": 19,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 20,
+                "end": 32,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 38,
+                "end": 51,
+                "label": "REGION"
+            },
+            {
+                "start": 72,
+                "end": 79,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Looking for a mid-range white wine that pairs well with chocolate.",
+        "entities": [
+            {
+                "start": 14,
+                "end": 23,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 24,
+                "end": 34,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 56,
+                "end": 65,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Can you suggest a affordable sparkling wine that pairs well with charcuterie?",
+        "entities": [
+            {
+                "start": 18,
+                "end": 28,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 29,
+                "end": 43,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 65,
+                "end": 76,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Looking for a mid-range dessert wine from Barossa Valley that goes well with salad.",
+        "entities": [
+            {
+                "start": 14,
+                "end": 23,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 24,
+                "end": 36,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 42,
+                "end": 55,
+                "label": "REGION"
+            },
+            {
+                "start": 76,
+                "end": 81,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Any recommendations for a mid-range fortified wine made from Biancolella?",
+        "entities": [
+            {
+                "start": 26,
+                "end": 35,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 36,
+                "end": 50,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 61,
+                "end": 72,
+                "label": "GRAPE_VARIETY"
+            }
+        ]
+    },
+    {
+        "text": "What is a good Zinfandel white wine under $45?",
+        "entities": [
+            {
+                "start": 15,
+                "end": 24,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 25,
+                "end": 35,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 42,
+                "end": 45,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "I need a under $100 wine from Mendoza.",
+        "entities": [
+            {
+                "start": 7,
+                "end": 16,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 26,
+                "end": 33,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "I need a premium wine from Maipo Valley.",
+        "entities": [
+            {
+                "start": 9,
+                "end": 16,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 27,
+                "end": 38,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "Any recommendations for a affordable ros wine made from Petit Not A Grape (nonsense)?",
+        "entities": [
+            {
+                "start": 25,
+                "end": 35,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 36,
+                "end": 44,
+                "label": "WINE_TYPE"
+            }
+        ]
+    },
+    {
+        "text": "Looking for a mid-range red wine that pairs well with salad.",
+        "entities": [
+            {
+                "start": 14,
+                "end": 23,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 24,
+                "end": 32,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 54,
+                "end": 59,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Find me a $100-$200 fortified wine from Yarra Valley that goes well with charcuterie.",
+        "entities": [
+            {
+                "start": 10,
+                "end": 19,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 20,
+                "end": 34,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 40,
+                "end": 52,
+                "label": "REGION"
+            },
+            {
+                "start": 73,
+                "end": 84,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Can you suggest a under $45 orange wine from Washington?",
+        "entities": [
+            {
+                "start": 18,
+                "end": 27,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 28,
+                "end": 39,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 45,
+                "end": 55,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "Any recommendations for a affordable fortified wine made from Lambrusco?",
+        "entities": [
+            {
+                "start": 25,
+                "end": 35,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 36,
+                "end": 50,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 61,
+                "end": 70,
+                "label": "GRAPE_VARIETY"
+            }
+        ]
+    },
+    {
+        "text": "What's a good Syrah/Shiraz ros wine in the under $200 range?",
+        "entities": [
+            {
+                "start": 14,
+                "end": 26,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 27,
+                "end": 35,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 43,
+                "end": 52,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "I need a affordable wine from Yarra Valley.",
+        "entities": [
+            {
+                "start": 9,
+                "end": 19,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 30,
+                "end": 42,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "Find me a $50-$100 sparkling wine from Alsace that goes well with dessert.",
+        "entities": [
+            {
+                "start": 10,
+                "end": 18,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 19,
+                "end": 33,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 39,
+                "end": 45,
+                "label": "REGION"
+            },
+            {
+                "start": 66,
+                "end": 73,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Any recommendations for a mid-range dessert wine from Loire Valley that goes well with salad?",
+        "entities": [
+            {
+                "start": 26,
+                "end": 35,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 36,
+                "end": 48,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 54,
+                "end": 66,
+                "label": "REGION"
+            },
+            {
+                "start": 87,
+                "end": 92,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "I need a under $10 wine from Piedmont.",
+        "entities": [
+            {
+                "start": 7,
+                "end": 16,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 26,
+                "end": 34,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "What's a good Pinot Noir fortified wine in the mid-range range?",
+        "entities": [
+            {
+                "start": 14,
+                "end": 24,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 25,
+                "end": 39,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 47,
+                "end": 56,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "Looking for an affordable dessert wine that pairs well with charcuterie.",
+        "entities": [
+            {
+                "start": 15,
+                "end": 25,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 26,
+                "end": 38,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 60,
+                "end": 71,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Can you suggest a $50-$100 dessert wine made from Negroamaro?",
+        "entities": [
+            {
+                "start": 18,
+                "end": 26,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 27,
+                "end": 39,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 50,
+                "end": 60,
+                "label": "GRAPE_VARIETY"
+            }
+        ]
+    },
+    {
+        "text": "I need a under $100 red wine from Nahe.",
+        "entities": [
+            {
+                "start": 7,
+                "end": 16,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 17,
+                "end": 25,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 31,
+                "end": 35,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "Any recommendations for a premium fortified wine made from Marsanne?",
+        "entities": [
+            {
+                "start": 25,
+                "end": 32,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 33,
+                "end": 47,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 58,
+                "end": 66,
+                "label": "GRAPE_VARIETY"
+            }
+        ]
+    },
+    {
+        "text": "Find me a affordable fortified wine from Ribera del Duero that goes well with steak.",
+        "entities": [
+            {
+                "start": 10,
+                "end": 20,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 21,
+                "end": 35,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 41,
+                "end": 57,
+                "label": "REGION"
+            },
+            {
+                "start": 78,
+                "end": 83,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "I'm looking for a $100-$200 sparkling wine from Washington that goes well with pasta.",
+        "entities": [
+            {
+                "start": 18,
+                "end": 27,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 28,
+                "end": 42,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 48,
+                "end": 58,
+                "label": "REGION"
+            },
+            {
+                "start": 79,
+                "end": 84,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Looking for a mid-range sparkling wine that pairs well with chocolate.",
+        "entities": [
+            {
+                "start": 14,
+                "end": 23,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 24,
+                "end": 38,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 60,
+                "end": 69,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "What's a good Malbec fortified wine in the under $100 range?",
+        "entities": [
+            {
+                "start": 14,
+                "end": 20,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 21,
+                "end": 35,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 43,
+                "end": 52,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "I need a mid-range fortified wine from Piedmont.",
+        "entities": [
+            {
+                "start": 9,
+                "end": 18,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 19,
+                "end": 33,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 39,
+                "end": 47,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "Can you suggest a premium white wine made from Carignan that pairs well with poultry?",
+        "entities": [
+            {
+                "start": 18,
+                "end": 25,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 26,
+                "end": 36,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 47,
+                "end": 55,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 77,
+                "end": 84,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Looking for a affordable ros wine made from Sangiovese?",
+        "entities": [
+            {
+                "start": 14,
+                "end": 24,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 25,
+                "end": 33,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 44,
+                "end": 54,
+                "label": "GRAPE_VARIETY"
+            }
+        ]
+    },
+    {
+        "text": "What is a good Chardonnay dessert wine under $100?",
+        "entities": [
+            {
+                "start": 15,
+                "end": 25,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 26,
+                "end": 38,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 45,
+                "end": 50,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "Can you suggest a $100-$200 fortified wine made from Zinfandel?",
+        "entities": [
+            {
+                "start": 18,
+                "end": 27,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 28,
+                "end": 42,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 53,
+                "end": 62,
+                "label": "GRAPE_VARIETY"
+            }
+        ]
+    },
+    {
+        "text": "Find me a premium fortified wine from Nahe that goes well with chocolate.",
+        "entities": [
+            {
+                "start": 10,
+                "end": 17,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 18,
+                "end": 32,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 38,
+                "end": 42,
+                "label": "REGION"
+            },
+            {
+                "start": 63,
+                "end": 72,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Any recommendations for a affordable ros wine from Loire Valley that goes well with cheese?",
+        "entities": [
+            {
+                "start": 25,
+                "end": 35,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 36,
+                "end": 44,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 50,
+                "end": 62,
+                "label": "REGION"
+            },
+            {
+                "start": 83,
+                "end": 89,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "I'm looking for a mid-range dessert wine that pairs well with charcuterie.",
+        "entities": [
+            {
+                "start": 18,
+                "end": 27,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 28,
+                "end": 40,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 62,
+                "end": 73,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Find me a mid-range fortified wine made from Merlot?",
+        "entities": [
+            {
+                "start": 10,
+                "end": 19,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 20,
+                "end": 34,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 45,
+                "end": 51,
+                "label": "GRAPE_VARIETY"
+            }
+        ]
+    },
+    {
+        "text": "I need a affordable wine from Provence.",
+        "entities": [
+            {
+                "start": 9,
+                "end": 19,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 30,
+                "end": 38,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "Looking for a $50-$100 dessert wine made from Sauvignon Blanc?",
+        "entities": [
+            {
+                "start": 14,
+                "end": 22,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 23,
+                "end": 35,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 46,
+                "end": 62,
+                "label": "GRAPE_VARIETY"
+            }
+        ]
+    },
+    {
+        "text": "Any recommendations for a red wine made from Roussanne under $30?",
+        "entities": [
+            {
+                "start": 26,
+                "end": 34,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 45,
+                "end": 54,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 61,
+                "end": 64,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "Any recommendations for a affordable ros wine that pairs well with charcuterie?",
+        "entities": [
+            {
+                "start": 25,
+                "end": 35,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 36,
+                "end": 44,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 66,
+                "end": 77,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Find me a mid-range white wine from Swartland that goes well with spicy food.",
+        "entities": [
+            {
+                "start": 10,
+                "end": 19,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 20,
+                "end": 30,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 36,
+                "end": 45,
+                "label": "REGION"
+            },
+            {
+                "start": 66,
+                "end": 76,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "I'm looking for a premium dessert wine from Barossa Valley that pairs well with dessert.",
+        "entities": [
+            {
+                "start": 18,
+                "end": 25,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 26,
+                "end": 38,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 44,
+                "end": 57,
+                "label": "REGION"
+            },
+            {
+                "start": 78,
+                "end": 85,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "I need a $50-$100 wine from Willamette Valley.",
+        "entities": [
+            {
+                "start": 7,
+                "end": 16,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 26,
+                "end": 43,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "What is a good Merlot sparkling wine in the under $200 range?",
+        "entities": [
+            {
+                "start": 15,
+                "end": 21,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 22,
+                "end": 36,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 44,
+                "end": 53,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "Looking for an affordable fortified wine that pairs well with dessert.",
+        "entities": [
+            {
+                "start": 15,
+                "end": 25,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 26,
+                "end": 40,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 62,
+                "end": 69,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "I need a mid-range wine from Piedmont.",
+        "entities": [
+            {
+                "start": 9,
+                "end": 18,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 29,
+                "end": 37,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "What's a good Grenache dessert wine in the under $45 range?",
+        "entities": [
+            {
+                "start": 14,
+                "end": 22,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 23,
+                "end": 35,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 43,
+                "end": 52,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "I need a under $30 wine from Maipo Valley.",
+        "entities": [
+            {
+                "start": 7,
+                "end": 16,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 26,
+                "end": 37,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "Can you suggest a mid-range white wine from Washington that goes well with cheese?",
+        "entities": [
+            {
+                "start": 18,
+                "end": 27,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 28,
+                "end": 38,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 44,
+                "end": 54,
+                "label": "REGION"
+            },
+            {
+                "start": 75,
+                "end": 81,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "I'm looking for a affordable orange wine from Loire Valley that pairs well with seafood.",
+        "entities": [
+            {
+                "start": 18,
+                "end": 28,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 29,
+                "end": 40,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 46,
+                "end": 58,
+                "label": "REGION"
+            },
+            {
+                "start": 80,
+                "end": 87,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Any suggestions for a $50-$100 dessert wine made from Biancolella?",
+        "entities": [
+            {
+                "start": 25,
+                "end": 33,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 34,
+                "end": 46,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 57,
+                "end": 68,
+                "label": "GRAPE_VARIETY"
+            }
+        ]
+    },
+    {
+        "text": "Looking for an affordable dessert wine from Champagne that goes well with poultry.",
+        "entities": [
+            {
+                "start": 15,
+                "end": 25,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 26,
+                "end": 38,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 44,
+                "end": 53,
+                "label": "REGION"
+            },
+            {
+                "start": 74,
+                "end": 81,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "I need a premium sparkling wine from Mosel.",
+        "entities": [
+            {
+                "start": 9,
+                "end": 16,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 17,
+                "end": 31,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 37,
+                "end": 42,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "Any recommendations for a premium fortified wine that pairs well with chocolate?",
+        "entities": [
+            {
+                "start": 25,
+                "end": 32,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 33,
+                "end": 47,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 69,
+                "end": 78,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "What's a good Tempranillo white wine in the $50-$100 range?",
+        "entities": [
+            {
+                "start": 14,
+                "end": 25,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 26,
+                "end": 36,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 44,
+                "end": 53,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "I need a $50-$100 wine from Tokaj.",
+        "entities": [
+            {
+                "start": 7,
+                "end": 16,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 26,
+                "end": 31,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "Find me a mid-range ros wine from Washington that pairs well with salad.",
+        "entities": [
+            {
+                "start": 10,
+                "end": 19,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 20,
+                "end": 28,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 34,
+                "end": 44,
+                "label": "REGION"
+            },
+            {
+                "start": 65,
+                "end": 70,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Looking for a $50-$100 sparkling wine from Aconcagua Valley that goes well with pasta.",
+        "entities": [
+            {
+                "start": 14,
+                "end": 22,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 23,
+                "end": 37,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 43,
+                "end": 60,
+                "label": "REGION"
+            },
+            {
+                "start": 81,
+                "end": 86,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "Any recommendations for a mid-range white wine from Piedmont?",
+        "entities": [
+            {
+                "start": 26,
+                "end": 35,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 36,
+                "end": 46,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 52,
+                "end": 60,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "Can you suggest a premium sparkling wine made from Lambrusco that pairs well with charcuterie?",
+        "entities": [
+            {
+                "start": 18,
+                "end": 25,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 26,
+                "end": 40,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 51,
+                "end": 60,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 82,
+                "end": 93,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+    {
+        "text": "What's a good Tempranillo red wine under $45?",
+        "entities": [
+            {
+                "start": 14,
+                "end": 25,
+                "label": "GRAPE_VARIETY"
+            },
+            {
+                "start": 26,
+                "end": 34,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 41,
+                "end": 44,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "I need a mid-range fortified wine from Rueda.",
+        "entities": [
+            {
+                "start": 9,
+                "end": 18,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 19,
+                "end": 33,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 39,
+                "end": 44,
+                "label": "REGION"
+            }
+        ]
+    },
+    {
+        "text": "Any suggestions for a premium red wine that pairs well with seafood?",
+        "entities": [
+            {
+                "start": 25,
+                "end": 32,
+                "label": "PRICE_RANGE"
+            },
+            {
+                "start": 33,
+                "end": 41,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 63,
+                "end": 70,
+                "label": "FOOD_PAIRING"
+            }
+        ]
+    },
+
+   
+
+
+    {
+        "text": "recommend me a red wine from California which is above 150 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 23,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 29,
+                "end": 39,
+                "label": "REGION"
+            },
+            {
+                "start": 49,
+                "end": 64,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a red wine from Napa Valley which is above 663 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 23,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 29,
+                "end": 39,
+                "label": "REGION"
+            },
+            {
+                "start": 49,
+                "end": 66,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a white wine from Nahe which is above 159 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 25,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 31,
+                "end": 35,
+                "label": "REGION"
+            },
+            {
+                "start": 45,
+                "end": 61,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a ros wine from Burgundy which is above 912 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 23,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 29,
+                "end": 37,
+                "label": "REGION"
+            },
+            {
+                "start": 47,
+                "end": 63,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a dessert wine from Bordeaux which is above 811 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 27,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 33,
+                "end": 41,
+                "label": "REGION"
+            },
+            {
+                "start": 51,
+                "end": 67,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a fortified wine from Bordeaux which is above 232 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 29,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 35,
+                "end": 43,
+                "label": "REGION"
+            },
+            {
+                "start": 53,
+                "end": 69,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a dessert wine from Burgundy which is above 613 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 27,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 33,
+                "end": 41,
+                "label": "REGION"
+            },
+            {
+                "start": 51,
+                "end": 68,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a ros wine from Willamette Valley which is above 771 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 23,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 29,
+                "end": 46,
+                "label": "REGION"
+            },
+            {
+                "start": 56,
+                "end": 73,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a fortified wine from Santa Barbara which is above 745 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 29,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 35,
+                "end": 48,
+                "label": "REGION"
+            },
+            {
+                "start": 58,
+                "end": 74,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a fortified wine from Piedmont which is above 407 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 29,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 35,
+                "end": 43,
+                "label": "REGION"
+            },
+            {
+                "start": 53,
+                "end": 70,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a orange wine from Willamette Valley which is above 149 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 26,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 32,
+                "end": 49,
+                "label": "REGION"
+            },
+            {
+                "start": 59,
+                "end": 74,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a dessert wine from Oregon which is above 765 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 27,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 33,
+                "end": 39,
+                "label": "REGION"
+            },
+            {
+                "start": 49,
+                "end": 66,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a sparkling wine from Yarra Valley which is above 538 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 29,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 35,
+                "end": 47,
+                "label": "REGION"
+            },
+            {
+                "start": 57,
+                "end": 74,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a dessert wine from Rioja which is above 503 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 27,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 33,
+                "end": 38,
+                "label": "REGION"
+            },
+            {
+                "start": 48,
+                "end": 65,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a sparkling wine from Paso Robles which is above 162 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 29,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 35,
+                "end": 46,
+                "label": "REGION"
+            },
+            {
+                "start": 56,
+                "end": 72,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a white wine from Bordeaux which is above 266 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 25,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 31,
+                "end": 39,
+                "label": "REGION"
+            },
+            {
+                "start": 49,
+                "end": 65,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a red wine from Champagne which is above 807 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 23,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 29,
+                "end": 38,
+                "label": "REGION"
+            },
+            {
+                "start": 48,
+                "end": 65,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a orange wine from Mosel which is above 94 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 26,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 32,
+                "end": 37,
+                "label": "REGION"
+            },
+            {
+                "start": 47,
+                "end": 59,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a dessert wine from Barossa Valley which is above 120 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 27,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 33,
+                "end": 46,
+                "label": "REGION"
+            },
+            {
+                "start": 56,
+                "end": 69,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a orange wine from Piedmont which is above 923 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 26,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 32,
+                "end": 40,
+                "label": "REGION"
+            },
+            {
+                "start": 50,
+                "end": 67,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a red wine from Bordeaux which is above 876 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 23,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 29,
+                "end": 37,
+                "label": "REGION"
+            },
+            {
+                "start": 47,
+                "end": 64,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a ros wine from Languedoc which is above 475 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 23,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 29,
+                "end": 38,
+                "label": "REGION"
+            },
+            {
+                "start": 48,
+                "end": 64,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a dessert wine from Yarra Valley which is above 435 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 27,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 33,
+                "end": 45,
+                "label": "REGION"
+            },
+            {
+                "start": 55,
+                "end": 72,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a ros wine from Mosel which is above 417 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 23,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 29,
+                "end": 34,
+                "label": "REGION"
+            },
+            {
+                "start": 44,
+                "end": 61,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a red wine from California which is above 150 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 23,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 29,
+                "end": 39,
+                "label": "REGION"
+            },
+            {
+                "start": 49,
+                "end": 64,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a sparkling wine from Curico Valley which is above 51 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 29,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 35,
+                "end": 48,
+                "label": "REGION"
+            },
+            {
+                "start": 58,
+                "end": 74,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a red wine from Oregon which is above 465 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 23,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 29,
+                "end": 35,
+                "label": "REGION"
+            },
+            {
+                "start": 45,
+                "end": 62,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a ros wine from Yarra Valley which is above 690 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 23,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 29,
+                "end": 41,
+                "label": "REGION"
+            },
+            {
+                "start": 51,
+                "end": 68,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a orange wine from Navarra which is above 366 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 26,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 32,
+                "end": 39,
+                "label": "REGION"
+            },
+            {
+                "start": 49,
+                "end": 66,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a ros wine from Central Otago which is above 359 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 23,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 29,
+                "end": 42,
+                "label": "REGION"
+            },
+            {
+                "start": 52,
+                "end": 69,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a dessert wine from Bekaa Valley which is above 963 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 27,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 33,
+                "end": 45,
+                "label": "REGION"
+            },
+            {
+                "start": 55,
+                "end": 72,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a dessert wine from Douro which is above 659 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 27,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 33,
+                "end": 38,
+                "label": "REGION"
+            },
+            {
+                "start": 48,
+                "end": 65,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a red wine from Colchagua Valley which is above 288 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 23,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 29,
+                "end": 45,
+                "label": "REGION"
+            },
+            {
+                "start": 55,
+                "end": 72,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a white wine from Mosel which is above 274 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 25,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 31,
+                "end": 36,
+                "label": "REGION"
+            },
+            {
+                "start": 46,
+                "end": 63,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a sparkling wine from Tokaj which is above 141 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 29,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 35,
+                "end": 40,
+                "label": "REGION"
+            },
+            {
+                "start": 50,
+                "end": 67,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a dessert wine from Anderson Valley which is above 853 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 27,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 33,
+                "end": 48,
+                "label": "REGION"
+            },
+            {
+                "start": 58,
+                "end": 75,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a sparkling wine from Piedmont which is above 925 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 29,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 35,
+                "end": 43,
+                "label": "REGION"
+            },
+            {
+                "start": 53,
+                "end": 70,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a ros wine from Curico Valley which is above 343 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 23,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 29,
+                "end": 42,
+                "label": "REGION"
+            },
+            {
+                "start": 52,
+                "end": 69,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a dessert wine from Navarra which is above 698 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 27,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 33,
+                "end": 40,
+                "label": "REGION"
+            },
+            {
+                "start": 50,
+                "end": 67,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a ros wine from Provence which is above 819 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 23,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 29,
+                "end": 37,
+                "label": "REGION"
+            },
+            {
+                "start": 47,
+                "end": 64,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a dessert wine from Rueda which is above 726 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 27,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 33,
+                "end": 38,
+                "label": "REGION"
+            },
+            {
+                "start": 48,
+                "end": 65,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a white wine from Sancerre which is above 883 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 25,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 31,
+                "end": 39,
+                "label": "REGION"
+            },
+            {
+                "start": 49,
+                "end": 66,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a white wine from Curico Valley which is above 145 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 25,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 31,
+                "end": 44,
+                "label": "REGION"
+            },
+            {
+                "start": 54,
+                "end": 71,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a red wine from Swartland which is above 824 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 23,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 29,
+                "end": 38,
+                "label": "REGION"
+            },
+            {
+                "start": 48,
+                "end": 65,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a white wine from Washington which is above 255 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 25,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 31,
+                "end": 41,
+                "label": "REGION"
+            },
+            {
+                "start": 51,
+                "end": 68,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a fortified wine from Yarra Valley which is above 747 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 29,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 35,
+                "end": 47,
+                "label": "REGION"
+            },
+            {
+                "start": 57,
+                "end": 74,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a ros wine from Champagne which is above 266 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 23,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 29,
+                "end": 38,
+                "label": "REGION"
+            },
+            {
+                "start": 48,
+                "end": 65,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a white wine from Valle de Guadalupe which is above 848 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 25,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 31,
+                "end": 49,
+                "label": "REGION"
+            },
+            {
+                "start": 59,
+                "end": 76,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a dessert wine from Santa Barbara which is above 926 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 27,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 33,
+                "end": 46,
+                "label": "REGION"
+            },
+            {
+                "start": 56,
+                "end": 73,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a white wine from Willamette Valley which is above 595 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 25,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 31,
+                "end": 48,
+                "label": "REGION"
+            },
+            {
+                "start": 58,
+                "end": 75,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a white wine from Etna which is above 757 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 25,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 31,
+                "end": 35,
+                "label": "REGION"
+            },
+            {
+                "start": 45,
+                "end": 62,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a orange wine from Colchagua Valley which is above 860 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 26,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 32,
+                "end": 48,
+                "label": "REGION"
+            },
+            {
+                "start": 58,
+                "end": 75,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a red wine from Sancerre which is above 546 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 23,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 29,
+                "end": 37,
+                "label": "REGION"
+            },
+            {
+                "start": 47,
+                "end": 64,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a orange wine from Priorat which is above 866 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 26,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 32,
+                "end": 39,
+                "label": "REGION"
+            },
+            {
+                "start": 49,
+                "end": 66,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a red wine from Toro which is above 659 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 23,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 29,
+                "end": 33,
+                "label": "REGION"
+            },
+            {
+                "start": 43,
+                "end": 60,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a ros wine from Mosel which is above 558 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 23,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 29,
+                "end": 34,
+                "label": "REGION"
+            },
+            {
+                "start": 44,
+                "end": 61,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a red wine from Burgundy which is above 701 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 23,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 29,
+                "end": 37,
+                "label": "REGION"
+            },
+            {
+                "start": 47,
+                "end": 64,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a red wine from Languedoc which is above 868 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 23,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 29,
+                "end": 38,
+                "label": "REGION"
+            },
+            {
+                "start": 48,
+                "end": 65,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a sparkling wine from Aconcagua Valley which is above 70 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 29,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 35,
+                "end": 51,
+                "label": "REGION"
+            },
+            {
+                "start": 61,
+                "end": 77,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a red wine from Swartland which is above 230 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 23,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 29,
+                "end": 38,
+                "label": "REGION"
+            },
+            {
+                "start": 48,
+                "end": 65,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a red wine from Rueda which is above 158 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 23,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 29,
+                "end": 34,
+                "label": "REGION"
+            },
+            {
+                "start": 44,
+                "end": 61,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a red wine from Paso Robles which is above 575 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 23,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 29,
+                "end": 40,
+                "label": "REGION"
+            },
+            {
+                "start": 50,
+                "end": 67,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a orange wine from Rheingau which is above 869 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 26,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 32,
+                "end": 40,
+                "label": "REGION"
+            },
+            {
+                "start": 50,
+                "end": 67,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a dessert wine from Etna which is above 418 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 27,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 33,
+                "end": 37,
+                "label": "REGION"
+            },
+            {
+                "start": 47,
+                "end": 64,
+                "label": "PRICE_RANGE"
+            }
+        ]
+    },
+    {
+        "text": "recommend me a red wine from Burgundy which is above 719 dollars",
+        "entities": [
+            {
+                "start": 15,
+                "end": 23,
+                "label": "WINE_TYPE"
+            },
+            {
+                "start": 29,
+                "end": 37,
+                "label": "REGION"
+            },
+            {
+                "start": 47,
+                "end": 64,
+                "label": "PRICE_RANGE"
+            }
+        ]
     }
 ]
