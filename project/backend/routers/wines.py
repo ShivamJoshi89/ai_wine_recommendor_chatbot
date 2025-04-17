@@ -1,3 +1,5 @@
+# server/src/routes/wines.py
+
 from fastapi import APIRouter, HTTPException, Query
 from typing import List, Optional, Any
 import re
@@ -5,14 +7,16 @@ from bson import ObjectId
 from bson.errors import InvalidId
 from pydantic import BaseModel
 from ..models.wine import Wine  # Your existing Pydantic Wine model
-from ..db import db          # Your Motor-connected database instance
+from ..db import db            # Your Motor-connected database instance
 import os
 
 router = APIRouter(prefix="/api/wines", tags=["wines"])
 
+
 def convert_to_str(value):
     """Convert a value to a string; if None, return an empty string."""
     return "" if value is None else str(value)
+
 
 def wine_helper(wine) -> dict:
     """
@@ -45,6 +49,7 @@ def wine_helper(wine) -> dict:
         "primary_type": convert_to_str(wine.get("primary type")),
         "image_url": convert_to_str(wine.get("Image URL"))
     }
+
 
 # --------------------------------------------------
 # NEW: Dynamic Search Endpoint Using MongoDB Text Search / Atlas Search
@@ -185,6 +190,7 @@ async def get_featured_wine():
             
     return featured_wines
 
+
 # --------------------------------------------------
 # Existing Endpoints (List, Count, Detail)
 # --------------------------------------------------
@@ -219,28 +225,59 @@ async def get_wines(
         wines.append(wine_helper(wine))
     return wines
 
+
 @router.get("/count", response_model=dict)
 async def get_wines_count(
-    region: Optional[str] = Query(None),
-    wine_type: Optional[str] = Query(None),
-    min_price: Optional[float] = Query(None),
-    max_price: Optional[float] = Query(None)
+    types: Optional[str]    = Query(None, description="Comma-separated wine types"),
+    min_price: Optional[float]   = Query(None),
+    max_price: Optional[float]   = Query(None),
+    min_rating: Optional[float]  = Query(None, description="Minimum Vivino average rating"),
+    grapes: Optional[str]    = Query(None, description="Comma-separated grape types"),
+    regions: Optional[str]   = Query(None, description="Comma-separated regions"),
+    countries: Optional[str] = Query(None, description="Comma-separated countries"),
+    styles: Optional[str]    = Query(None, description="Comma-separated wine styles (primary_type)"),
+    pairings: Optional[str]  = Query(None, description="Comma-separated food pairings")
 ):
-    query = {}
-    if region:
-        query["Region"] = region
-    if wine_type:
-        query["Wine Type"] = wine_type
+    query: dict = {}
+
+    if types:
+        type_list = [t.strip() for t in types.split(",") if t.strip()]
+        query["Wine Type"] = {"$in": type_list}
+
     if min_price is not None or max_price is not None:
-        price_query = {}
+        price_q: dict = {}
         if min_price is not None:
-            price_query["$gte"] = min_price
+            price_q["$gte"] = min_price
         if max_price is not None:
-            price_query["$lte"] = max_price
-        query["Price"] = price_query
+            price_q["$lte"] = max_price
+        query["Price"] = price_q
+
+    if min_rating is not None:
+        query["Rating"] = {"$gte": min_rating}
+
+    if grapes:
+        grape_list = [g.strip() for g in grapes.split(",") if g.strip()]
+        query["Grape Type List"] = {"$in": grape_list}
+
+    if regions:
+        region_list = [r.strip() for r in regions.split(",") if r.strip()]
+        query["Region"] = {"$in": region_list}
+
+    if countries:
+        country_list = [c.strip() for c in countries.split(",") if c.strip()]
+        query["Country"] = {"$in": country_list}
+
+    if styles:
+        style_list = [s.strip() for s in styles.split(",") if s.strip()]
+        query["primary type"] = {"$in": style_list}
+
+    if pairings:
+        pairing_list = [p.strip() for p in pairings.split(",") if p.strip()]
+        query["Food Pairing"] = {"$in": pairing_list}
 
     count = await db.wines.count_documents(query)
     return {"count": count}
+
 
 @router.get("/{wine_id}", response_model=Wine)
 async def get_wine_detail(wine_id: str):
@@ -254,6 +291,7 @@ async def get_wine_detail(wine_id: str):
         return wine_helper(wine)
     
     raise HTTPException(status_code=404, detail="Wine not found")
+
 
 @router.get("/", response_model=List[Wine])
 async def get_wines(

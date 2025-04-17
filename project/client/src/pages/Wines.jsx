@@ -17,7 +17,7 @@ import {
   Button,
   IconButton,
   Drawer,
-  Divider
+  Divider,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import Pagination from '@mui/material/Pagination';
@@ -25,61 +25,66 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { getWines, getWinesCount } from '../services/wineService';
 
+const DEFAULT_PRICE_RANGE = [0, 1000];
 const wineTypes = ['Red','White','Sparkling','Rosé','Dessert','Fortified'];
 const regionsList = ['Bordeaux','Bourgogne','Napa Valley','Piemonte','Rhone Valley','Toscana'];
 const countriesList = ['Argentina','Australia','Austria','Chile','France','Germany','Italy','Portugal','Spain','United States'];
 const stylesList = ['Argentinian Malbec','Californian Cabernet Sauvignon','Central Italy Red','Spanish Red','Spanish Rioja Red'];
-const pairingsList = ['Aperitif','Appetizers and snacks','Beef','Blue cheese','Cured Meat','Fruity desserts','Game (deer, venison)','Goat\'s Milk Cheese','Lamb','Lean fish','Mature and hard cheese','Mild and soft cheese','Mushrooms','Pasta','Pork','Poultry','Rich fish (salmon, tuna etc)','Shellfish','Spicy food','Sweet desserts','Veal','Vegetarian'];
+const pairingsList = [
+  'Aperitif','Appetizers and snacks','Beef','Blue cheese','Cured Meat',
+  'Fruity desserts','Game (deer, venison)','Goat\'s Milk Cheese','Lamb',
+  'Lean fish','Mature and hard cheese','Mild and soft cheese','Mushrooms',
+  'Pasta','Pork','Poultry','Rich fish (salmon, tuna etc)','Shellfish',
+  'Spicy food','Sweet desserts','Veal','Vegetarian'
+];
 
 export default function Wines() {
   const [wines, setWines] = useState([]);
-  const [limit] = useState(20);
   const [page, setPage] = useState(1);
   const [totalCount, setTotalCount] = useState(0);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
-  // Filter state
+  // Filters
   const [selectedTypes, setSelectedTypes] = useState([]);
-  const [priceRange, setPriceRange] = useState([0, 10000]);
-  const [minRating, setMinRating] = useState(null);
+  const [priceRange, setPriceRange] = useState(DEFAULT_PRICE_RANGE);
+  const [minRating, setMinRating] = useState(0);
   const [selectedGrapes, setSelectedGrapes] = useState([]);
   const [selectedRegions, setSelectedRegions] = useState([]);
   const [selectedCountries, setSelectedCountries] = useState([]);
   const [selectedStyles, setSelectedStyles] = useState([]);
   const [selectedPairings, setSelectedPairings] = useState([]);
 
-  // Drawer for mobile filters
+  // Mobile drawer
   const [drawerOpen, setDrawerOpen] = useState(false);
 
-  // Build filter object matching backend params
-  const buildFilters = () => ({
-    types: selectedTypes.join(','),
-    min_price: priceRange[0],
-    max_price: priceRange[1],
-    min_rating: minRating,
-    grapes: selectedGrapes.join(','),
-    regions: selectedRegions.join(','),
-    countries: selectedCountries.join(','),
-    styles: selectedStyles.join(','),
-    pairings: selectedPairings.join(','),
-  });
+  const buildFilters = () => {
+    const f = {};
+    if (selectedTypes.length)     f.types      = selectedTypes.join(',');
+    if (priceRange[0] !== DEFAULT_PRICE_RANGE[0]) f.min_price  = priceRange[0];
+    if (priceRange[1] !== DEFAULT_PRICE_RANGE[1]) f.max_price  = priceRange[1];
+    if (minRating !== 0)          f.min_rating = minRating;
+    if (selectedGrapes.length)    f.grapes     = selectedGrapes.join(',');
+    if (selectedRegions.length)   f.regions    = selectedRegions.join(',');
+    if (selectedCountries.length) f.countries  = selectedCountries.join(',');
+    if (selectedStyles.length)    f.styles     = selectedStyles.join(',');
+    if (selectedPairings.length)  f.pairings   = selectedPairings.join(',');
+    return f;
+  };
 
-  // Fetch count with optional filters
-  const fetchCount = useCallback((filters = {}) => {
+  const fetchCount = useCallback(filters => {
     getWinesCount(filters)
       .then(data => setTotalCount(data.count))
       .catch(() => setTotalCount(0));
   }, []);
 
-  // Fetch wines with filters & page
-  const fetchWines = useCallback((filters = {}, pageNum = page) => {
+  const fetchWines = useCallback((filters, pageNum) => {
     setLoading(true);
-    getWines({ ...filters, limit, page: pageNum })
-      .then(data => setWines(Array.isArray(data) ? data : []))
+    getWines({ ...filters, limit: 20, page: pageNum })
+      .then(data => setWines(data))
       .catch(() => setWines([]))
       .finally(() => setLoading(false));
-  }, [limit, page]);
+  }, []);
 
   // Initial load
   useEffect(() => {
@@ -89,6 +94,7 @@ export default function Wines() {
 
   const handleApplyFilters = () => {
     const filters = buildFilters();
+    console.log('Applying filters:', filters);
     setPage(1);
     fetchCount(filters);
     fetchWines(filters, 1);
@@ -96,20 +102,18 @@ export default function Wines() {
   };
 
   const handlePageChange = (_, value) => {
-    setPage(value);
     const filters = buildFilters();
+    setPage(value);
     fetchWines(filters, value);
   };
 
-  const totalPages = Math.ceil(totalCount / limit);
+  const totalPages = Math.ceil(totalCount / 20);
 
-  // Filter panel JSX
   const FilterPanel = (
     <Box sx={{ width: { xs: 260, md: 300 }, p: 2 }}>
       <Typography variant="h6" gutterBottom>Filters</Typography>
       <Divider sx={{ mb:2 }} />
 
-      {/* Wine Types */}
       <Typography variant="subtitle1">Wine Types</Typography>
       <FormGroup>
         {wineTypes.map(type => (
@@ -118,11 +122,13 @@ export default function Wines() {
             control={
               <Checkbox
                 checked={selectedTypes.includes(type)}
-                onChange={e => {
+                onChange={e =>
                   setSelectedTypes(prev =>
-                    e.target.checked ? [...prev, type] : prev.filter(t => t!==type)
-                  );
-                }}
+                    e.target.checked
+                      ? [...prev, type]
+                      : prev.filter(t => t !== type)
+                  )
+                }
               />
             }
             label={type}
@@ -130,24 +136,22 @@ export default function Wines() {
         ))}
       </FormGroup>
 
-      {/* Price Range */}
       <Box sx={{ mt:3 }}>
         <Typography variant="subtitle1">Price Range</Typography>
         <Slider
           value={priceRange}
-          onChange={(e,v)=>setPriceRange(v)}
+          onChange={(_, v) => setPriceRange(v)}
           valueLabelDisplay="auto"
-          min={0}
-          max={10000}
+          min={DEFAULT_PRICE_RANGE[0]}
+          max={DEFAULT_PRICE_RANGE[1]}
         />
       </Box>
 
-      {/* Min Rating */}
       <Box sx={{ mt:3 }}>
         <Typography variant="subtitle1">Min Rating</Typography>
         <Slider
-          value={minRating||0}
-          onChange={(e,v)=>setMinRating(v)}
+          value={minRating}
+          onChange={(_, v) => setMinRating(v)}
           valueLabelDisplay="auto"
           min={0}
           max={5}
@@ -155,58 +159,53 @@ export default function Wines() {
         />
       </Box>
 
-      {/* Grapes */}
       <Box sx={{ mt:3 }}>
         <Autocomplete
           multiple
           freeSolo
           options={[]}
           value={selectedGrapes}
-          onChange={(e,v)=>setSelectedGrapes(v)}
+          onChange={(_, v) => setSelectedGrapes(v)}
           renderInput={params => <TextField {...params} label="Grapes" />}
         />
       </Box>
 
-      {/* Regions */}
       <Box sx={{ mt:3 }}>
         <Autocomplete
           multiple
           options={regionsList}
           value={selectedRegions}
-          onChange={(e,v)=>setSelectedRegions(v)}
+          onChange={(_, v) => setSelectedRegions(v)}
           renderInput={params => <TextField {...params} label="Regions" />}
         />
       </Box>
 
-      {/* Countries */}
       <Box sx={{ mt:3 }}>
         <Autocomplete
           multiple
           options={countriesList}
           value={selectedCountries}
-          onChange={(e,v)=>setSelectedCountries(v)}
+          onChange={(_, v) => setSelectedCountries(v)}
           renderInput={params => <TextField {...params} label="Countries" />}
         />
       </Box>
 
-      {/* Styles */}
       <Box sx={{ mt:3 }}>
         <Autocomplete
           multiple
           options={stylesList}
           value={selectedStyles}
-          onChange={(e,v)=>setSelectedStyles(v)}
+          onChange={(_, v) => setSelectedStyles(v)}
           renderInput={params => <TextField {...params} label="Styles" />}
         />
       </Box>
 
-      {/* Pairings */}
       <Box sx={{ mt:3 }}>
         <Autocomplete
           multiple
           options={pairingsList}
           value={selectedPairings}
-          onChange={(e,v)=>setSelectedPairings(v)}
+          onChange={(_, v) => setSelectedPairings(v)}
           renderInput={params => <TextField {...params} label="Pairings" />}
         />
       </Box>
@@ -224,7 +223,6 @@ export default function Wines() {
 
   return (
     <Container sx={{ py:5 }}>
-      {/* Mobile filter button */}
       <IconButton
         sx={{ display:{ md:'none' }, mb:2 }}
         onClick={()=>setDrawerOpen(true)}
@@ -233,7 +231,6 @@ export default function Wines() {
       </IconButton>
 
       <Box sx={{ display:{ xs:'block', md:'flex' }, gap:4 }}>
-        {/* Sidebar on md+ */}
         <Box sx={{ display:{ xs:'none', md:'block' } }}>
           <Paper elevation={0} sx={{
             p:2,
@@ -246,7 +243,6 @@ export default function Wines() {
           </Paper>
         </Box>
 
-        {/* Drawer for mobile */}
         <Drawer
           open={drawerOpen}
           onClose={()=>setDrawerOpen(false)}
@@ -254,12 +250,13 @@ export default function Wines() {
           {FilterPanel}
         </Drawer>
 
-        {/* Wine grid */}
         <Box sx={{ flex:1 }}>
-          <Typography variant="h4" align="center" gutterBottom sx={{
-            textTransform:'uppercase',
-            color:'text.primary'
-          }}>
+          <Typography
+            variant="h4"
+            align="center"
+            gutterBottom
+            sx={{ textTransform:'uppercase', color:'text.primary' }}
+          >
             Explore Wines
           </Typography>
 
@@ -283,16 +280,10 @@ export default function Wines() {
                       alt={wine.wine_name}
                     />
                     <CardContent>
-                      <Typography variant="h6" noWrap sx={{
-                        textTransform:'uppercase',
-                        color:'text.primary'
-                      }}>
+                      <Typography variant="h6" noWrap sx={{textTransform:'uppercase', color:'text.primary'}}>
                         {wine.wine_name}
                       </Typography>
-                      <Typography variant="body2" noWrap sx={{
-                        textTransform:'uppercase',
-                        color:'text.secondary'
-                      }}>
+                      <Typography variant="body2" noWrap sx={{textTransform:'uppercase', color:'text.secondary'}}>
                         ${wine.price} • {wine.rating} Stars
                       </Typography>
                     </CardContent>
