@@ -1,0 +1,1 @@
+from project.backend.main import app
