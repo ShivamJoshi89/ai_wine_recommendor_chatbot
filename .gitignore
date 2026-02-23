@@ -1,4 +1,59 @@
+# =========================
+# Secrets
+# =========================
+.env
+.env.*
+*.pem
+*.key
+project/client/.env
+
+# =========================
+# Python
+# =========================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+.pytest_cache/
+.mypy_cache/
+
+# Virtual environments
+wine_env/
+venv/
+.venv/
+
+# =========================
+# ML / Models / Artifacts
+# =========================
+models/
 intent_model/
 wine_ner_model/
-Response_generator/.env
-.env
+*.bin
+*.pt
+*.pth
+*.onnx
+
+# =========================
+# Node / React
+# =========================
+node_modules/
+project/client/node_modules/
+build/
+dist/
+project/client/build/
+
+# =========================
+# OS / Editor
+# =========================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# =========================
+# Misc / Local utilities
+# =========================
+*.pptx
+mongo_test.py
+project/backend/queries.txt
